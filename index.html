@@ -6,24 +6,32 @@
     </head>
     <body>
         <div id="nav">
-            <a id="img" href="#"><img src="images/robot_white.ico"></a>
-            <a href="#">Dodgebots</a>
+            <a id="img" href="index.html"><img src="images/robot_white.ico"></a>
+            <a href="index.html">Dodgebots</a>
         </div>
         <div id="main">
             <div id="left_side">
-                <a>Test 1</a>
-                <a>Test 2</a>
+                <a href="#" onclick="welcome()" id="wel">Dodgebots Workshop</a>
+                <a href="#" onclick="tutorial1()" id="tut1">Tutorial 1: 3D Modelling</a>
+                <a>Tutorial 2: CAD</a>
             </div>
             <div id="right_side">
-                <p>Welcome to the Dodgebots Workshop!</p>
-                <p id="right_desc">Some text.</p>
+                <div id="welcome">
+                    <p>Welcome to the Dodgebots Workshop!</p>
+                    <p id="right_desc">Sample text. In this workshop, we will be looking at a few aspects of the competition that will be happening in 3 weeks.</p>
+                </div>
+                <div id="tutorial1">
+                    <p>Tutorial 1:&nbsp;3D Modeling</p>
+                </div>
             </div>
         </div>
         <div id="footer">
                 <p>Made for Sunway Robotics Club.</p>
             <div class="foot_right">
-                <a href="#">abc</a>
+                <a href="https://github.com/sunway-robotics/Dodgebots-Workshop"><img src="images/github-mark-white.png"></a>
+                <a href="https://www.instagram.com/sunwayrobotics/"><img src="images/instagram_white.png"></a>
             </div>
         </div>
+        <script src="script.js"></script>
     </body>
         </html>
