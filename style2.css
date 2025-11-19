@@ -170,6 +170,21 @@ body {
     border: none;
 }
 
+#right_side #bluetooth, #bluetooth td{
+    border-collapse: collapse;
+    border: none;
+}
+
+#right_side #bluetooth{
+    width: 100%;
+}
+
+#right_side #bluetooth td{
+    width: 33%;
+    border-collapse: collapse;
+    border: none;
+}
+
 #footer {
     position: sticky;
     bottom: 0;
