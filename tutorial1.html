@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <title>Dodgebots</title>
+        <link rel="icon" href="images/robot.ico">
+        <link rel="stylesheet" href="style2.css">
+    </head>
+    <body>
+        <div id="nav">
+            <a id="img" href="index.html"><img src="images/robot_white.ico"></a>
+            <a href="index.html">Dodgebots</a>
+        </div>
+        <div id="main">
+            <div id="left_side">
+                <a href="index.html" onclick="welcome()" id="wel">Dodgebots Workshop</a>
+                <a href="#" onclick="tutorial1()" id="tut1">Part 1: Introduction to ESP32 and Components</a>
+                <a href="tutorial2.html" onclick="tutorial2()" id="tut2">Part 2: 3D Design & Printing</a>
+            </div>
+            <div id="right_side">
+                <div id="tutorial1">
+                    <p>Part 1:&nbsp;Introduction to Arduino and Components</p>
+                    <h2>INTRODUCTION</h2>
+                    <p id="desc">Today we are assembling a 4-wheel robot base. You will learn:</p>
+                    <ol>
+                        <li>How the L298N motor driver works</li>
+                        <li>How to the wire four DC motors</li>
+                        <li>What each pin on the motor driver does</li>
+                        <li>How to mount the electronics using female–female standoffs</li>
+                        <li>How to connect the motor driver to the arduino/esp32</li>
+                    </ol>
+                    <h2 style="text-decoration: none;">1.0 Car Base Building</h2>
+                    <p id="sub">1.1 List of Components for Car Base</p>
+                    <img id="components" src="images/components.png">
+                    <ul style="list-style-type: none; font-style: italic;">
+                        <li>2 x chassis</li>
+                        <li>4 x wheel</li>
+                        <li>4 x TT Motor</li>
+                        <li>8 x M3*30 Screw</li>
+                        <li>8 x Fastener</li>
+                        <li>6 x M3*8 Screw</li>
+                        <li>8 x M3 Nut</li>
+                        <li>6 x L30+6 F-F Standoffs</li>
+                        <br>
+                    </ul>
+                    <p id="sub">1.2 Steps of Assembly</p>
+                    <table>
+                        <tr>
+                            <td><img src="images/step1.png"><p id="desc" style="font-style: italic; margin-left: 10px; margin-right: 10px; margin-bottom: 10px;">Step 1: Insert the fasteners into the chassis after tearing off the yellow protection wraps of the chassis, the fasteners and the code wheels.</p></td>
+                            <td><img src="images/step2.png"><p id="desc" style="font-style: italic; margin-left: 10px; margin-right: 10px; margin-bottom: 10px;">Step 2: Install the code wheels and fix the motors to the chassis. (Attention: The copper sheets of the leading wires of the motors should face outward, on the same side as the wheels)</p></td>
+                        </tr>
+                        <tr>
+                            <td><img src="images/step3.png"><p id="desc" style="font-style: italic; margin-left: 10px; margin-right: 10px; margin-bottom: 10px;">Step 3: After fixing the motors to the chassis, insert and tighten the screws.</p></td>
+                            <td><img src="images/step4.png"><p id="desc" style="font-style: italic; margin-left: 10px; margin-right: 10px; margin-bottom: 10px;">Step 4: Hold the chassis tightly and insert the wheels to the motors.</p></td>
+                        </tr>
+                        <tr>
+                            <td><img src="images/step5.png"><p id="desc" style="font-style: italic; margin-left: 10px; margin-right: 10px; margin-bottom: 10px;">Step 5: Insert the spacers, tighten them with screws from the bottom and then with screws from the upper side. Installation is then completed.</p></td>
+                            <td><img src="images/step6.png"><p id="desc" style="text-align: center; font-style: italic; margin-left: 10px; margin-right: 10px; margin-bottom: 10px;">Completed installation</p></td>                       
+                        </tr>
+                    </table>
+                    <br>
+                    <p id="sub">1.3 Understanding the L298N Motor-Driver</p>
+                    <img id="components" src="images/buck.png" style="width: 80%;">
+                    <div id="caption">Figure 1.1</div>
+                    <img id="components" src="images/motor.png">
+                    <div id="caption">Figure 1.2</div>
+                    <p id="sub_bold">NOTE: When connecting the wires, the actual slot does not matter as long as positive and negative are in the same place.</p>
+                    <p id="sub_bold">Motor A (left side)</p>
+                    <ul>
+                        <li>OUT1</li>
+                        <li>OUT2</li>
+                    </ul>
+                    <p id="desc" style="padding-bottom: 10px;">These are where the first pair of motors will connect to the top two motors in Figure 1.2.</p>
+                    <p id="sub_bold">Motor B (Right Side)</p>
+                    <ul>
+                        <li>OUT3</li>
+                        <li>OUT4</li>
+                    </ul>
+                    <p id="desc" style="padding-bottom: 10px;">These are where the second pair of motors will connect to the bottom two motors.</p>
+                    <p id="sub">1.4 Control Pins</p>
+                    <p id="sub_bold">NOTE: They are shown on the bottom row of Figure 1.1.</p>
+                    <p id="sub_bold">IN1, IN2</p>
+                    <ul id="pins">
+                        <li>Control direction for <strong>Motor A</strong></li>
+                        <li>IN1 HIGH + IN2 LOW → forward</li>
+                        <li>IN1 LOW + IN2 HIGH → reverse</li>
+                    </ul>
+                    <p id="sub_bold">IN3, IN4</p>
+                    <ul id="pins">
+                        <li>Control direction for <strong>Motor B</strong></li>
+                        <li>Same logic as above</li>
+                        <br>
+                    </ul>
+                    <p id="sub_bold">Power Section (Bottom Left – VCC, GND, 5V)</p>
+                    <p id="sub_bold">VCC</p>
+                    <ul id="pins">
+                        <li>The main motor power input</li>
+                        <li>Connect to battery</li>
+                    </ul>
+                    <p id="sub_bold">GND</p>
+                    <ul id="pins">
+                        <li>Battery ground</li>
+                        <li>MUST also connect to ESP32 GND</li>
+                        <li>Common Ground which is connected to ESP32 and Battery is required for signals to make sense.</li>
+                    </ul>
+                    <p id="sub_bold">5V</p>
+                    <ul id="pins">
+                        <li>Supplies 5V to Arduino <strong>only if the 5V Enable Jumper is installed.</strong></li>
+                    </ul>
+                    <p id="sub">1.5 Wiring the Motors (Using Labelled OUT Pins)</p>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+                <p>Made for Sunway Robotics Club.</p>
+            <div class="foot_right">
+                <a href="https://github.com/sunway-robotics/Dodgebots-Workshop"><img src="images/github-mark-white.png"></a>
+                <a href="https://www.instagram.com/sunwayrobotics/"><img src="images/instagram_white.png"></a>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+        </html>

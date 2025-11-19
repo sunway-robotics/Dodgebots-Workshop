@@ -5,6 +5,14 @@ body {
     height: 100vh;
 }
 
+#left_side a:hover {
+    filter: invert(0.5);
+}
+
+#footer a img:hover {
+    filter: invert(0.3);
+}
+
 #nav {
     display: flex;
     list-style-type: none;
@@ -49,7 +57,7 @@ body {
     color: black;
 }
 
-#left_side a#wel {
+#left_side a#tut2 {
     font-weight: bold;
 }
 
@@ -66,17 +74,13 @@ body {
     font-size: 18px;
 }
 
-#right_side #welcome {
+#right_side #tutorial2 {
     display: block;
 }
 
 #right_side p {
     font-weight: 500;
     font-size: 32px;
-}
-
-#right_side #tutorial1, #right_side #tutorial2 {
-    display: none;
 }
 
 #footer {
