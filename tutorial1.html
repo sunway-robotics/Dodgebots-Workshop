@@ -106,6 +106,358 @@
                         <li>Supplies 5V to Arduino <strong>only if the 5V Enable Jumper is installed.</strong></li>
                     </ul>
                     <p id="sub">1.5 Wiring the Motors (Using Labelled OUT Pins)</p>
+                    <p id="desc"><strong>Channel A</strong> → OUT1 & OUT2</p>
+                    <p id="desc">Connect both front motors in parallel:</p>
+                    <ul id="pins">
+                        <li>Red wires → OUT1</li>
+                        <li>Black wires → OUT2</li>
+                    </ul>
+                    <p id="desc"><strong>Channel B</strong> → OUT3 & OUT4</p>
+                    <p id="desc">Connect both rear motors in parallel:</p>
+                    <ul id="pins">
+                        <li>Red wires → OUT3</li>
+                        <li>Black wires → OUT24</li>
+                    </ul>
+                    <p id="desc">Remember to explain polarity:</p>
+                    <p id="desc">“If a motor spins backwards, swap the two wires. Don’t change the code; just flip the wires.”</p>
+                    <p id="sub">1.6 Mounting Everything With Standoffs</p>
+                    <img id="components" src="images/standoff.png">
+                    <div id="caption">Figure 1.3</div>
+                    <p id="desc">Purpose of the standoffs:</p>
+                    <ul id="pins">
+                        <li>Lifts the electronics platform</li>
+                        <li>Prevents short circuits</li>
+                        <li>Provides space for motor wires and battery</li>
+                        <li>Makes the robot look neat and stable</li>
+                    </ul>
+                    <p id="sub">1.7 How to Install</p>
+                    <ol>
+                        <li>Insert four screws at each corner of the chassis from the bottom of the chassis into the standoff.</li>
+                        <li>The standoff becomes a vertical pillar.</li>
+                        <li>Place the electronics plate (top deck) on the standoffs.</li>
+                        <li>Secure with screws from the top.</li>
+                        <li>Mount the L298N and Arduino/ESP32 onto the elevated platform.</li>
+                    </ol>
+                    <img id="components" src="images/arduino.png">
+                    <div id="caption">Figure 1.4 (Note that there are 4 motors to be connected as shown in Figure 1.2)</div>
+                    <p id="desc"><strong>NOTE:</strong> Ignore the Enable pins as we will not be needing them in this workshop.</p>
+                    <img id="components" src="images/esp32.png">
+                    <img id="components" src="images/board.png">
+                    <div id="caption">Above is a picture of the ESP32 and the board it is mounted on for better connection. (Still following Figure 1.4)</div>
+                    <p id="sub_bold">Connecting the Motor driver to The ESP32 (pins can be changed)</p>
+                    <table id="driver">
+                        <tr>
+                            <th>L298N Pin</th>
+                            <th>Connection on ESP32</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>IN1</td>
+                            <td>D33</td>
+                            <td>Motor A direction</td>
+                        </tr>
+                        <tr>
+                            <td>IN2</td>
+                            <td>D25</td>
+                            <td>Motor A direction</td>
+                        </tr>
+                        <tr>
+                            <td>IN3</td>
+                            <td>D26</td>
+                            <td>Motor B direction</td>
+                        </tr>
+                        <tr>
+                            <td>IN4</td>
+                            <td>D27</td>
+                            <td>Motor B direction</td>
+                        </tr>
+                        <tr>
+                            <td>GND</td>
+                            <td>GND</td>
+                            <td>Common ground</td>
+                        </tr>
+                    </table>
+                    <br>
+                    <h2 style="text-decoration: none;">2.0 ESP32</h2>
+                    <p id="desc">ESP32 is a powerful microcontroller used in robotics, IoT, and automation projects. It comes with:</p>
+                    <ul id="pins">
+                        <li>Dual-core processor (up to 240 MHz)</li>
+                        <li>WiFi + Bluetooth</li>
+                        <li>Multiple GPIO pins</li>
+                        <li>ADC (Analog inputs)</li>
+                        <li>PWM pins for motors/servos</li>
+                        <li>UART, I2C, SPI communication support</li>
+                    </ul>
+                    <img id="components" src="images/esp32_board.png">
+                    <p id="sub_bold">Power Pins</p>
+                    <ul id="pins">
+                        <li>3.3V → Power sensors & logic</li>
+                        <li>5V → Input from USB</li>
+                        <li>GND → Common ground</li>
+                    </ul>
+                    <p id="sub_bold">GPIO Pins</p>
+                    <p id="desc">Flexible pins used for digital input/output.</p>
+                    <p id="sub_bold">ADC Pins (Analog Input)</p>
+                    <ul id="pins">
+                        <li>Pins 32, 33, 34, 35, 36, 39</li>
+                        <p id="sub_bold">PWM Pins (Servo/Motor Signal)</p>
+                        <p id="desc">Almost all GPIOs support PWM</p>
+                        <p id="desc">Best to use: <strong>GPIO 18, 19, 21, 22, 23, 25, 26, 27</strong></p>
+                    </ul>
+                    <p id="sub_bold">UART Pins (Serial Communication)</p>
+                    <ul>
+                        <li>TX0/RX0 (default)</li>
+                        <li>Can remap to other GPIOs</li>
+                    </ul>
+                    <p id="sub">2.0 Steps to Connect ESP32 to Your Laptop</p>
+                    <p id="sub_bold">Step 1: Install Arduino IDE</p>
+                    <p id="desc">Latest version recommended.</p>
+                    <p id="sub_bold">Step 2: Install ESP32 Boards</p>
+                    <table id="esp">
+                        <tr>
+                            <td><div id="caption" style="font-weight: bold; margin-bottom: 0;">1</div><img id="components" src="images/board1.png"><div id="caption">Download this under Board Manager</div></td>
+                            <td><div id="caption" style="font-weight: bold; margin-bottom: 0;">2</div><img id="components" src="images/board2.png"><div id="caption">Download under Library</div></td>
+                        </tr>
+                    </table>
+                    <p id="sub_bold">Step 3: Debugging Process for Port Identification</p>
+                    <p id="sub">Step 1</p>
+                    <img id="components" src="images/debug1.png">
+                    <p id="sub">Step 2</p>
+                    <img id="components" src="images/debug2.png">
+                    <p id="sub">Step 3</p>
+                    <p id="desc">Select the new port and click "Select other board and port...."</p>
+                    <p id="desc">Then select ESP32-WROOM-DA-Module for the board.</p>
+                    <img id="components" src="images/debug3.png">
+                    <p id="sub_bold">Step 4: First Test Program (Blink)</p>
+                    <p id="desc">Paste this in Arduino IDE:</p>
+                    <code>
+                        void setup() {<br>
+                            pinMode(2, OUTPUT);<br>
+                        }<br>
+                        <br>
+                        void loop() {<br>
+                            digitalWrite(2, HIGH);<br>
+                            delay(1000);<br>
+                            digitalWrite(2, LOW);<br>
+                            delay(1000);<br>
+                        }<br>
+                    </code>
+                    <p id="desc">Press the BOOT button continuously when you see "Connecting" until the upload continues. </p>
+                    <p id="sub">Upload → If the LED blinks → ESP32 is working perfectly.</p>
+                    <img id="components" src="images/boot.png">
+                    <p id="sub_bold">Step 5: Controlling the Robot Car</p>
+<code>
+#include &lt;BluetoothSerial.h&gt;<br>
+BluetoothSerial SerialBT;<br>
+<br>
+#define LED_PIN 2<br>
+#define IN1 33<br>
+#define IN2 25<br>
+#define IN3 26<br>
+#define IN4 27<br>
+<br>
+void setup() {<br>
+&nbsp;&nbsp;SerialBT.begin("ESP32Bot");<br>
+<br>
+&nbsp;&nbsp;pinMode(LED_PIN, OUTPUT);<br>
+&nbsp;&nbsp;digitalWrite(LED_PIN, HIGH);<br>
+<br>
+&nbsp;&nbsp;pinMode(IN1, OUTPUT);<br>
+&nbsp;&nbsp;pinMode(IN2, OUTPUT);<br>
+&nbsp;&nbsp;pinMode(IN3, OUTPUT);<br>
+&nbsp;&nbsp;pinMode(IN4, OUTPUT);<br>
+}<br>
+<br>
+void loop() {<br>
+&nbsp;&nbsp;if (SerialBT.available()) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;char c = SerialBT.read();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;handleCommand(c);<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+void handleCommand(char c) {<br>
+&nbsp;&nbsp;if (c == 'F') { // Forward<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN1, HIGH);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN2, LOW);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN3, HIGH);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN4, LOW);<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;else if (c == 'B') { // Backward<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN1, LOW);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN2, HIGH);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN3, LOW);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN4, HIGH);<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;else if (c == 'L') { // Left<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN1, HIGH);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN2, LOW);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN3, LOW);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN4, LOW);<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;else if (c == 'R') { // Right<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN1, LOW);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN2, LOW);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN3, HIGH);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN4, LOW);<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;else if (c == 'A') { // Diagonal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN1, HIGH);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN2, LOW);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN3, LOW);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN4, HIGH);<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;else if (c == 'S') { // Stop<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN1, LOW);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN2, LOW);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN3, LOW);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN4, LOW);<br>
+&nbsp;&nbsp;}<br>
+}<br>
+</code>
+                    <p id="sub_bold">Step 6: Bluetooth</p>
+                    
+                    <h2 style="text-decoration: none;">3.0 Buck Converter</h2>
+                    <p id="sub_bold">1. What Is a Buck Converter?</p>
+                    <p id="desc">A buck converter reduces a higher voltage (ex: battery) to a lower voltage (ex: 5V).<br><br>
+                        For robotics:<br><br>
+                        Smooth power<br><br>
+                        High current<br><br>
+                        Stable voltage → no random resets<br><br>
+                    </p>
+                    <p id="sub_bold">2. Diagram Input Side</p>
+                    <p id="desc">7V–24V battery or adapter<br><br>
+                        Positive → VIN<br><br>
+                        Negative → GND<br><br>
+                        Output Side (USB Female)<br><br>
+                        Output is fixed at 5V<br><br>
+                        Connect USB cable → ESP32<br><br>
+                        or USB splitter → multiple devices<br><br>
+                    </p>
+                    <h2 style="text-decoration: none;">4.0 Servo Motor Calibration</h2>
+                    <p id="sub_bold">What is Servo Calibration?</p>
+                    <p id="desc">Calibration ensures:</p>
+                    <ul id="pins">
+                        <li>Each servo starts at the correct zero (home) angle</li>
+                        <li>Movements are symmetrical</li>
+                        <li>All legs/arms/links start from the same mechanical reference</li>                        
+                        <li>This prevents mechanical binding and burnt gears.</li>
+                    </ul>
+                    <p id="sub_bold">Why do we calibrate?</p>
+                    <ul id="pins">
+                        <li>So all legs/arms behave identical</li>
+                        <li>To avoid torque overload</li>
+                        <li>To ensure accurate walking / rotation / gripping</li>
+                        <li>To protect expensive servos (especially MG996R, DS3218, etc.)</li>
+                    </ul>
+                    <p id="sub_bold">Our Project’s Servo Calibration Steps</p>
+                    <p id="sub">Step 1: Power the Servo Correctly</p>
+                    <ul id="pins">
+                        <li>Use the <strong>buck converter → 6V</strong> (or 5V if servo is cheap)</li>
+                        <li>Never power servos from Arduino 5V pin</li>
+                    </ul>
+                    <p id="sub">Step 2: Upload the Centering Code</p>
+<code>
+#include &lt;Servo.h&gt; &nbsp; &nbsp; // 1) Required library<br>
+<br>
+// 2) Pin definitions<br>
+#define SERVO_PIN 18 &nbsp; &nbsp; &nbsp; // PWM pin connected to servo signal<br>
+<br>
+// 3) Angle conversion constants<br>
+const int SERVO_MIN_ANGLE = 0;<br>
+const int SERVO_MAX_ANGLE = 180;<br>
+const int SERVO_CENTER = 90; &nbsp; &nbsp; // Default center value<br>
+<br>
+// 4) Global variables<br>
+Servo myServo; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Servo object<br>
+int offset = 0; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Offset for fine-tuning the center<br>
+<br>
+// 5) Helper function for calibration<br>
+void moveToAngle(int angle) {<br>
+&nbsp;&nbsp;int correctedAngle = angle + offset;<br>
+<br>
+&nbsp;&nbsp;// Limit protection<br>
+&nbsp;&nbsp;if (correctedAngle &lt; SERVO_MIN_ANGLE) correctedAngle = SERVO_MIN_ANGLE;<br>
+&nbsp;&nbsp;if (correctedAngle &gt; SERVO_MAX_ANGLE) correctedAngle = SERVO_MAX_ANGLE;<br>
+<br>
+&nbsp;&nbsp;myServo.write(correctedAngle);<br>
+&nbsp;&nbsp;delay(800);<br>
+}<br>
+<br>
+// 6) SETUP FUNCTION<br>
+void setup() {<br>
+&nbsp;&nbsp;Serial.begin(115200);<br>
+&nbsp;&nbsp;myServo.attach(SERVO_PIN);<br>
+<br>
+&nbsp;&nbsp;Serial.println("Starting Servo Calibration...");<br>
+&nbsp;&nbsp;Serial.println("Centering Servo...");<br>
+&nbsp;&nbsp;moveToAngle(SERVO_CENTER);<br>
+}<br>
+<br>
+// 7) LOOP FUNCTION<br>
+void loop() {<br>
+&nbsp;&nbsp;// TEST FULL RANGE<br>
+&nbsp;&nbsp;Serial.println("Moving to 0 degrees...");<br>
+&nbsp;&nbsp;moveToAngle(0);<br>
+<br>
+&nbsp;&nbsp;Serial.println("Moving to 90 degrees...");<br>
+&nbsp;&nbsp;moveToAngle(90);<br>
+<br>
+&nbsp;&nbsp;Serial.println("Moving to 180 degrees...");<br>
+&nbsp;&nbsp;moveToAngle(180);<br>
+<br>
+&nbsp;&nbsp;Serial.println("Returning to center...");<br>
+&nbsp;&nbsp;moveToAngle(90);<br>
+<br>
+&nbsp;&nbsp;delay(1500);<br>
+}<br>
+</code>
+        <p id="sub_bold">1) Required Libraries</p>
+        <code>#include &lt;Servo.h&gt;</code>
+        <p id="sub_bold">2) Pin Definitions</p>
+        <code>#define SERVO_PIN 18</code>
+        <p id="sub_bold">3) Angle Conversion Constants</p>
+        <code>const int SERVO_MIN_ANGLE = 0;<br>
+            const int SERVO_MAX_ANGLE = 180;<br>
+            const int SERVO_CENTER = 90;
+        </code>
+        <p id="sub_bold">4) Global Variables</p>
+        <code>Servo myServo;<br>
+            int offset = 0;<br>
+        </code>
+        <p id="sub_bold">5) Calibration Helper Function</p>
+<code>
+void moveToAngle(int angle) {<br>
+&nbsp;&nbsp;int correctedAngle = angle + offset;<br>
+<br>
+&nbsp;&nbsp;if (correctedAngle &lt; SERVO_MIN_ANGLE) correctedAngle = SERVO_MIN_ANGLE;<br>
+&nbsp;&nbsp;if (correctedAngle &gt; SERVO_MAX_ANGLE) correctedAngle = SERVO_MAX_ANGLE;<br>
+<br>
+&nbsp;&nbsp;myServo.write(correctedAngle);<br>
+&nbsp;&nbsp;delay(800);<br>
+}<br>
+</code>
+        <p id="sub_bold">6) Setup Function</p>
+<code>
+void setup() {<br>
+&nbsp;&nbsp;Serial.begin(115200);<br>
+&nbsp;&nbsp;myServo.attach(SERVO_PIN);<br>
+<br>
+&nbsp;&nbsp;Serial.println("Starting Servo Calibration...");<br>
+&nbsp;&nbsp;Serial.println("Centering Servo...");<br>
+&nbsp;&nbsp;moveToAngle(SERVO_CENTER);<br>
+}<br>
+</code>
+        <p id="sub_bold">7) Loop Function</p>
+<code>
+void loop() {<br>
+&nbsp;&nbsp;moveToAngle(0);<br>
+&nbsp;&nbsp;moveToAngle(90);<br>
+&nbsp;&nbsp;moveToAngle(180);<br>
+&nbsp;&nbsp;moveToAngle(90);<br>
+<br>
+&nbsp;&nbsp;delay(1500);<br>
+}<br>
+</code>
                 </div>
             </div>
         </div>
