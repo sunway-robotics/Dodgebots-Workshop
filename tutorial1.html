@@ -19,7 +19,7 @@
                 <div id="tutorial1">
                     <div id="title">
                         <p>Part 1:&nbsp;Introduction to Arduino and Components</p>
-                        <a href="https://docs.google.com/document/d/1MJMlYkbyol5IRf3OBDn80gJgJdrQPNExD08sowAVF0k/edit?tab=t.ai4stvbd56ta"><button>Download this document</button></a>
+                        <a href="https://github.com/sunway-robotics/Dodgebots-Workshop/tree/main/files/Arduino%20%2B%20Car%20Base"><button>Download this document</button></a>
                     </div>
                     <h2>INTRODUCTION</h2>
                     <p id="desc">Today we are assembling a 4-wheel robot base. You will learn:</p>
@@ -45,7 +45,7 @@
                         <br>
                     </ul>
                     <p id="sub">1.2 Steps of Assembly</p>
-                    <table>
+                    <table id="assembly">
                         <tr>
                             <td><img src="images/step1.png"><p id="desc" style="font-style: italic; margin-left: 10px; margin-right: 10px; margin-bottom: 10px;">Step 1: Insert the fasteners into the chassis after tearing off the yellow protection wraps of the chassis, the fasteners and the code wheels.</p></td>
                             <td><img src="images/step2.png"><p id="desc" style="font-style: italic; margin-left: 10px; margin-right: 10px; margin-bottom: 10px;">Step 2: Install the code wheels and fix the motors to the chassis. (Attention: The copper sheets of the leading wires of the motors should face outward, on the same side as the wheels)</p></td>
@@ -233,6 +233,7 @@
                     <img id="components" src="images/debug3.png">
                     <p id="sub_bold">Step 4: First Test Program (Blink)</p>
                     <p id="desc">Paste this in Arduino IDE:</p>
+                    <div id="code">
                     <code>
                         void setup() {<br>
                             pinMode(2, OUTPUT);<br>
@@ -245,6 +246,7 @@
                             delay(1000);<br>
                         }<br>
                     </code>
+                    </div>
                     <p id="desc">Press the BOOT button continuously when you see "Connecting" until the upload continues. </p>
                     <p id="sub">Upload → If the LED blinks → ESP32 is working perfectly.</p>
                     <img id="components" src="images/boot.png">
@@ -320,14 +322,15 @@ void handleCommand(char c) {<br>
                     <p id="sub_bold">Step 6: Bluetooth</p>
                     <table id="bluetooth">
                         <tr>
-                            <td><img id="components" src="images/step1.jpeg"></td>
-                            <td><img id="components" src="images/step2.jpeg"></td>
-                            <td><img id="components" src="images/step3.jpeg"></td>
+                            <td><img src="images/step1.jpeg"></td>
+                            <td><img src="images/step2.jpeg"></td>
+                            <td><img src="images/step3.jpeg"></td>
                         </tr>
                         <tr>
-                            <td><img id="components" src="images/step4.jpeg"></td>
-                            <td><img id="components" src="images/step5.jpeg"></td>
-                            <td><img id="components" src="images/step6.jpeg"></td>
+
+                            <td><img src="images/step4.jpeg"></td>
+                            <td><img src="images/step5.jpeg"></td>
+                            <td><img src="images/step6.jpeg"></td>
                         </tr>
                     </table>
                     <h2 style="text-decoration: none;">3.0 Buck Converter</h2>
