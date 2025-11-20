@@ -68,7 +68,6 @@ body {
 }
 
 #right_side {
-    width: 85%;
     display: inline-flex;
     padding: 0;
     margin-top: 8px;
