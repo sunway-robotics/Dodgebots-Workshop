@@ -89,16 +89,15 @@ body {
     grid-template-columns: 6fr 2fr;
     width: 100%;
     align-items: center;
-    height: 90;
 }
 
 #right_side #title button {
-    height: 50%;
+    height: auto;
     background-color: #e7e7e7; 
     color: black;
     border: none;
-    padding: 15px 36px;
     font-size: 18px;
+    padding: 10px 10px 10px 10px;
 }
 
 #right_side #title button:hover {
@@ -127,6 +126,10 @@ body {
 #right_side #sub_bold {
     font-size: 20px;
     font-weight: bold;
+}
+
+#right_side code {
+    background-color: gray;
 }
 
 #right_side #components {
