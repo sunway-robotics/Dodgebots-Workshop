@@ -3,9 +3,11 @@
         <title>Dodgebots</title>
         <link rel="icon" href="images/robot.ico">
         <link rel="stylesheet" href="style2.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     </head>
     <body>
         <div id="nav">
+            <a id="icon" href="javascript:void(0);" onclick="myFunction()"><i class="fa fa-bars"></i></a>
             <a id="img" href="index.html"><img src="images/robot_white.ico"></a>
             <a href="index.html">Dodgebots</a>
         </div>
@@ -19,7 +21,7 @@
                 <div id="tutorial1">
                     <div id="title">
                         <p>Part 1:&nbsp;Introduction to Arduino and Components</p>
-                        <a href="https://github.com/sunway-robotics/Dodgebots-Workshop/tree/main/files/Arduino%20%2B%20Car%20Base"><button>Download this document</button></a>
+                        <a href="https://github.com/sunway-robotics/Dodgebots-Workshop/tree/main/files/Arduino%20%2B%20Car%20Base"><button><i class="fa fa-download"></i></button></a>
                     </div>
                     <h2>INTRODUCTION</h2>
                     <p id="desc">Today we are assembling a 4-wheel robot base. You will learn:</p>
@@ -211,7 +213,7 @@
                         <li>TX0/RX0 (default)</li>
                         <li>Can remap to other GPIOs</li>
                     </ul>
-                    <p id="sub">2.0 Steps to Connect ESP32 to Your Laptop</p>
+                    <p id="sub">2.1 Steps to Connect ESP32 to Your Laptop</p>
                     <p id="sub_bold">Step 1: Install Arduino IDE</p>
                     <p id="desc">Latest version recommended.</p>
                     <p id="sub_bold">Step 2: Install ESP32 Boards</p>
@@ -247,9 +249,10 @@
                     </code>
                     </div>
                     <p id="desc">Press the BOOT button continuously when you see "Connecting" until the upload continues. </p>
-                    <p id="sub">Upload → If the LED blinks → ESP32 is working perfectly.</p>
+                    <p id="desc" style="text-decoration: underline;">Upload → If the LED blinks → ESP32 is working perfectly.</p>
                     <img id="components" src="images/boot.png">
                     <p id="sub_bold">Step 5: Controlling the Robot Car</p>
+                    <div id="code">
 <code>
 #include &lt;BluetoothSerial.h&gt;<br>
 BluetoothSerial SerialBT;<br>
@@ -318,6 +321,7 @@ void handleCommand(char c) {<br>
 &nbsp;&nbsp;}<br>
 }<br>
 </code>
+</div>
                     <p id="sub_bold">Step 6: Bluetooth</p>
                     <table id="bluetooth">
                         <tr>
@@ -372,6 +376,7 @@ void handleCommand(char c) {<br>
                         <li>Never power servos from Arduino 5V pin</li>
                     </ul>
                     <p id="sub">Step 2: Upload the Centering Code</p>
+                    <div id="code">
 <code>
 #include &lt;Servo.h&gt; &nbsp; &nbsp; // 1) Required library<br>
 <br>
@@ -427,20 +432,30 @@ void loop() {<br>
 &nbsp;&nbsp;delay(1500);<br>
 }<br>
 </code>
+</div>
         <p id="sub_bold">1) Required Libraries</p>
+        <div id="code">
         <code>#include &lt;Servo.h&gt;</code>
+        </div>
         <p id="sub_bold">2) Pin Definitions</p>
+        <div id="code">
         <code>#define SERVO_PIN 18</code>
+        </div>
         <p id="sub_bold">3) Angle Conversion Constants</p>
+        <div id="code">
         <code>const int SERVO_MIN_ANGLE = 0;<br>
             const int SERVO_MAX_ANGLE = 180;<br>
             const int SERVO_CENTER = 90;
         </code>
+        </div>
         <p id="sub_bold">4) Global Variables</p>
+        <div id="code">
         <code>Servo myServo;<br>
             int offset = 0;<br>
         </code>
+        </div>
         <p id="sub_bold">5) Calibration Helper Function</p>
+        <div id="code">
 <code>
 void moveToAngle(int angle) {<br>
 &nbsp;&nbsp;int correctedAngle = angle + offset;<br>
@@ -452,7 +467,9 @@ void moveToAngle(int angle) {<br>
 &nbsp;&nbsp;delay(800);<br>
 }<br>
 </code>
+</div>
         <p id="sub_bold">6) Setup Function</p>
+    <div id="code">
 <code>
 void setup() {<br>
 &nbsp;&nbsp;Serial.begin(115200);<br>
@@ -463,7 +480,9 @@ void setup() {<br>
 &nbsp;&nbsp;moveToAngle(SERVO_CENTER);<br>
 }<br>
 </code>
+</div>
         <p id="sub_bold">7) Loop Function</p>
+        <div id="code">
 <code>
 void loop() {<br>
 &nbsp;&nbsp;moveToAngle(0);<br>
@@ -474,11 +493,12 @@ void loop() {<br>
 &nbsp;&nbsp;delay(1500);<br>
 }<br>
 </code>
+</div>
                 </div>
             </div>
         </div>
         <div id="footer">
-                <p>Made with ♥ for Sunway Robotics Club.</p>
+                <p>Made with ♥ by Sunway Robotics Club.</p>
             <div class="foot_right">
                 <a href="https://github.com/sunway-robotics/Dodgebots-Workshop"><img src="images/github-mark-white.png"></a>
                 <a href="https://www.instagram.com/sunwayrobotics/"><img src="images/instagram_white.png"></a>

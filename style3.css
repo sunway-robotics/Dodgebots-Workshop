@@ -35,9 +35,15 @@ body {
     padding: 14px 0;
 }
 
+#nav #icon {
+    display: flex;
+    margin: 16px 0 16px 64px;
+    padding: 0;
+}
+
 #nav #img {
-    margin: 12px;
-    padding: 0 24px;
+    margin: 12px 12px 12px 24px;
+    padding: 0;
 }
 
 #main {
@@ -46,16 +52,15 @@ body {
     gap: 60px;  
     flex-grow: 1;
     overflow: hidden;
-    margin-left: 36px;
-    margin-right: 36px;
+    margin-left: 64px;
+    margin-right: 64px;
 }
 
 #left_side {
-    margin-top: 48px;
+    margin-top: 36px;
     padding: 0;
     display: inline-flex;
     flex-direction: column;
-    overflow-y: auto;
 }
 
 #left_side a {
@@ -71,10 +76,10 @@ body {
 #right_side {
     display: inline-flex;
     padding: 0;
-    margin-top: 8px;
     margin-bottom: 32px;
     flex-direction: column;
     min-height: 0;
+    margin-top: 8px;
 }
 
 #right_side #tutorial2 {
@@ -85,9 +90,8 @@ body {
 
 #right_side #title {
     display: grid; 
-    grid-template-columns: 6fr 2fr;
+    grid-template-columns: 5fr 2fr;
     align-items: center;
-    height: 150;
 }
 
 #right_side #title button {
@@ -97,6 +101,7 @@ body {
     border: none;
     font-size: 18px;
     padding: 20px 20px 20px 20px;
+    width: 100%;
 }
 
 #right_side #title button:hover {
@@ -110,6 +115,7 @@ body {
 }
 
 #right_side p {
+    font-weight: 500;
     font-size: 32px;
 }
 
@@ -171,7 +177,7 @@ body {
 }
 
 #driver th, #driver td {
-    width: 33%;
+    width: auto;
     padding: 10px;
 }
 
@@ -246,20 +252,4 @@ body {
 
 .foot_right a img {
     height: 20px;
-}
-
-
-@media only screen and (max-width: 1000px) {
-    #main {
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-
-    #left_side {
-        display: none;
-    }
-
-    #right_side {
-        width: 100%;
-    }
 }
