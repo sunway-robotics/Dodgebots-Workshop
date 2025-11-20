@@ -126,8 +126,10 @@ body {
     font-weight: bold;
 }
 
-#right_side code {
-    background-color: gray;
+#right_side #code {
+    background-color: lightgray;
+    padding: 20px;
+    font-size: 18px;
 }
 
 #right_side #components {
@@ -153,7 +155,6 @@ body {
     object-fit: contain;
     width: 300;
     height: 300;
-    margin: auto;
     display: block; 
 }
 
@@ -178,7 +179,7 @@ body {
 #right_side #caption {
     display: block; 
     text-align: center;
-    margin: 20px;
+    margin: 10px 0 10px 0;
 }
 
 #right_side #wel, #right_side #tutorial2 {
@@ -192,6 +193,12 @@ body {
 #right_side #esp, #esp td{
     border-collapse: collapse;
     border: none;
+}
+
+#right_side #esp img{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
 #right_side #bluetooth {
