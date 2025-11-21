@@ -47,11 +47,9 @@ body {
 #main {
     display: grid;
     grid-template-columns: 1fr 4fr;
-    gap: 50px;  
-    flex-grow: 1;
     margin-left: 64px;
     margin-right: 64px;
-    min-height: 0;
+    gap: 50px;  
     overflow: hidden;
 }
 
@@ -92,7 +90,6 @@ body {
     display: grid; 
     align-items: center;
     grid-template-columns: 4fr 1fr;
-    width: 100%;
 }
 
 #right_side #title button {
@@ -142,7 +139,7 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 75%;
     align-items: center;
 }
 
@@ -159,8 +156,9 @@ body {
 
 #right_side tr img {
     object-fit: contain;
-    width: 300;
-    height: 300;
+    min-width: 30%;
+    max-width: 75%;
+    max-height: 75%;
     display: block; 
     margin: auto;
 }
@@ -267,5 +265,198 @@ body {
     
     #left_side {
         display: none;
+    }
+
+    #footer p {
+        margin-left: 16px;
+    }
+
+    .foot_right a {
+        align-items: center;
+        vertical-align: middle;
+        text-decoration: none;
+        color: rgb(215, 215, 215);
+        margin-right: 16px;
+        margin-left: 8px;
+    }
+
+    #nav {
+        display: flex;
+        list-style-type: none;
+        background-color: rgb(60, 35, 252);
+        width: 100%;
+        height: 48px;
+        box-shadow: 3px 3px 10px gray;
+    }
+
+    #nav a {
+        font-size: 18px;
+        font-weight: 600;
+        display: flex;
+        text-decoration: none;
+        color: white;
+        padding: 14px 0;
+    }
+
+    #nav #icon {
+        margin: 16px 0 16px 24px;
+        padding: 0;
+    }
+
+    #nav #img {
+        margin: 12px 12px 12px 24px;
+        padding: 0;
+        width: 30px;
+    }
+
+    #right_side #bluetooth td {
+        width: 100%;
+        border-collapse: collapse;
+        border: none;
+    }
+
+    #right_side td, #right_side th {
+        width: 100%;
+        display: block; 
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    #main {
+        grid-template-columns: 1fr;
+    }
+    
+    #left_side {
+        display: none;
+    }
+
+    #right_side tr img {
+        max-width: 90%; 
+        max-height: unset;
+        margin: 10px auto;
+    }
+    
+    #right_side #components {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #right_side #bluetooth td {
+        width: 100%;
+        border-collapse: collapse;
+        border: none;
+    }
+
+    #main {
+        margin-left: 20px; 
+        margin-right: 20px; 
+    }
+
+    #footer p {
+        margin-left: 16px;
+    }
+
+    .foot_right a {
+        align-items: center;
+        vertical-align: middle;
+        text-decoration: none;
+        color: rgb(215, 215, 215);
+        margin-right: 16px;
+        margin-left: 8px;
+    }
+
+    #nav {
+        display: flex;
+        list-style-type: none;
+        background-color: rgb(60, 35, 252);
+        width: 100%;
+        height: 48px;
+        box-shadow: 3px 3px 10px gray;
+    }
+
+    #nav a {
+        font-size: 18px;
+        font-weight: 600;
+        display: flex;
+        text-decoration: none;
+        color: white;
+        padding: 14px 0;
+    }
+
+    #nav #icon {
+        margin: 16px 0 16px 24px;
+        padding: 0;
+    }
+
+    #nav #img {
+        margin: 12px 12px 12px 24px;
+        padding: 0;
+        width: 30px;
+    }
+
+    #right_side #bluetooth img {
+        height: auto;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #main {
+        margin-left: 10px;
+        margin-right: 10px;
+        gap: 20px; 
+    }
+
+    #right_side p {
+        font-size: 24px; 
+    }
+
+    #right_side #title {
+        grid-template-columns: 1fr; 
+        gap: 5px;
+        margin-bottom: 10px;
+    }
+
+    #right_side #title button {
+        float: none;
+        width: 100%;
+        box-sizing: border-box; 
+        padding: 10px; 
+    }
+    
+    #nav a {
+        padding: 14px 4px; 
+        font-size: 16px; 
+    }
+
+    #nav #icon {
+        margin: 16px 0 16px 10px; 
+    }
+
+    #nav #img {
+        margin: 12px 6px 12px 10px; 
+    }
+    
+    #right_side ol li {
+        padding: 5px; 
+    }
+
+    #footer {
+        height: auto; 
+        flex-direction: column;
+        padding: 0;
+    }
+
+    #footer p {
+        margin-top: 15px;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .foot_right {
+        margin: 0 auto; 
+        padding-bottom: 10px;
     }
 }
