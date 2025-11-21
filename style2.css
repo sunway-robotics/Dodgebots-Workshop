@@ -259,3 +259,13 @@ body {
 .foot_right a img {
     height: 20px;
 }
+
+@media only screen and (max-width: 1000px) {
+    #main {
+        grid-template-columns: 1fr;
+    }
+    
+    #left_side {
+        display: none;
+    }
+}
