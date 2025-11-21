@@ -236,7 +236,7 @@
                     <p id="desc">Paste this in Arduino IDE:</p>
                     <div id="code">
                     <code>
-                        void setup() {<br>
+                        void setup() {<br>  
                             pinMode(2, OUTPUT);<br>
                         }<br>
                         <br>
@@ -264,7 +264,7 @@ BluetoothSerial SerialBT;<br>
 #define IN4 27<br>
 <br>
 void setup() {<br>
-&nbsp;&nbsp;SerialBT.begin("ESP32Bot");<br>
+&nbsp;&nbsp;  SerialBT.begin("ESP32Bot");  // Change according to your team name to avoid duplicates<br>
 <br>
 &nbsp;&nbsp;pinMode(LED_PIN, OUTPUT);<br>
 &nbsp;&nbsp;digitalWrite(LED_PIN, HIGH);<br>
@@ -323,6 +323,11 @@ void handleCommand(char c) {<br>
 </code>
 </div>
                     <p id="sub_bold">Step 6: Bluetooth</p>
+                    <p id="sub">Downloading the Bluetooino App</p>
+                    <p id="desc">Download the app from the Google Play Store</p>
+                    <p id="desc"><strong>*Note: </strong>This app will only work with Android devices.</p>
+                    <img id="components" src="images/playstore.png">
+                    <p id="sub">Using the Bluetooino App</p>
                     <table id="bluetooth">
                         <tr>
                             <td><img src="images/step1.jpeg"></td>
