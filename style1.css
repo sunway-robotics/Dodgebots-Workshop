@@ -90,6 +90,7 @@ body {
 
 #right_side p {
     font-size: 32px;
+    font-weight: normal;
 }
 
 #right_side #tutorial1, #right_side #tutorial2 {
