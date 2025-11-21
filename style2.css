@@ -2,7 +2,9 @@ body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding: 0;
     margin: 0;
-    overflow-x: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 #left_side a:hover {
@@ -14,15 +16,12 @@ body {
 }
 
 #nav {
-    position: sticky;
     display: flex;
     top: 0;
     list-style-type: none;
     background-color: rgb(60, 35, 252);
-    width: 100%;
     height: 48px;
     box-shadow: 3px 3px 10px gray;
-    flex-shrink: 0;
 }
 
 #nav a {
@@ -35,7 +34,6 @@ body {
 }
 
 #nav #icon {
-    display: flex;
     margin: 16px 0 16px 64px;
     padding: 0;
 }
@@ -43,6 +41,7 @@ body {
 #nav #img {
     margin: 12px 12px 12px 24px;
     padding: 0;
+    width: 30px;
 }
 
 #main {
@@ -50,16 +49,19 @@ body {
     grid-template-columns: 1fr 4fr;
     gap: 50px;  
     flex-grow: 1;
-    overflow: hidden;
     margin-left: 64px;
     margin-right: 64px;
+    min-height: 0;
+    overflow: hidden;
 }
 
 #left_side {
+    top: 0;
     margin-top: 36px;
     padding: 0;
     display: inline-flex;
     flex-direction: column;
+    position: sticky;   
 }
 
 #left_side a {

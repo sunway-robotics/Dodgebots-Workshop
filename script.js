@@ -71,7 +71,6 @@ function myFunction() {
   if (x.style.display === "none" || x.style.display === "") {
     x.style.display = "inline-flex"; // SHOW the sidebar
     y.style.gridTemplateColumns = "1fr 4fr";
-
   } else {
     x.style.display = "none"; // HIDE the sidebar
     y.style.gridTemplateColumns = "1fr";

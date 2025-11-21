@@ -3,6 +3,8 @@ body {
     padding: 0;
     margin: 0;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 #left_side a:hover {
@@ -32,7 +34,6 @@ body {
 }
 
 #nav #icon {
-    display: flex;
     margin: 16px 0 16px 64px;
     padding: 0;
 }
@@ -40,6 +41,7 @@ body {
 #nav #img {
     margin: 12px 12px 12px 24px;
     padding: 0;
+    width: 30px;
 }
 
 #main {
@@ -47,7 +49,8 @@ body {
     grid-template-columns: 1fr 4fr;
     margin-left: 64px;
     margin-right: 64px;
-    gap: 60px;  
+    gap: 50px;  
+    width: fit-content;
 }
 
 #left_side {
@@ -55,7 +58,8 @@ body {
     padding: 0;
     display: inline-flex;
     flex-direction: column;
-    position: relative;
+    position: sticky;
+    align-self: start;
 }
 
 #left_side a {
