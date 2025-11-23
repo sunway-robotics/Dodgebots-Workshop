@@ -404,6 +404,16 @@ body {
         box-sizing: border-box; 
         padding: 10px; 
     }
+
+
+    #right_side table {
+        overflow-x: auto;
+        display: block;
+    }
+
+    #right_side td {
+        display: block;
+    }
     
     #nav a {
         padding: 14px 4px; 
@@ -421,6 +431,7 @@ body {
     #right_side ol li {
         padding: 5px; 
     }
+    
 
     #footer {
         height: auto; 

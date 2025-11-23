@@ -316,6 +316,8 @@ body {
     }
 
     #right_side td, #right_side th {
+        padding-left: 8px;
+        padding-right: 8px;
         width: 100%;
         display: block; 
     }
@@ -442,6 +444,7 @@ body {
     #right_side ol li {
         padding: 5px; 
     }
+    
 
     #footer {
         height: auto; 
