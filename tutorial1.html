@@ -25,18 +25,27 @@
                         <a href="https://github.com/sunway-robotics/Dodgebots-Workshop/tree/main/files/Arduino%20%2B%20Car%20Base"><button><i class="fa fa-download"></i></button></a>
                     </div>
                     <h2>INTRODUCTION</h2>
-                    <p id="desc">Today we are assembling a 4-wheel robot base. You will learn:</p>
+                    <p id="desc">Today we are assembling a 4-wheel robot base. You will learn about:</p>
                     <ol>
-                        <li>How the L298N motor driver works</li>
-                        <li>How to the wire four DC motors</li>
-                        <li>What each pin on the motor driver does</li>
-                        <li>How to mount the electronics using female–female standoffs</li>
-                        <li>How to connect the motor driver to the arduino/esp32</li>
+                        <li>Buck Converter Basics </li>
+                        <li>Electronic Connections</li>
+                        <li>L298N Motor Driver</li>
+                        <ol type="a" start="1">
+                            <li>How it works</li>
+                            <li>Pin functions</li>
+                        </ol>
+                        <li>ESP32 Basics</li>
+                        <li>Bluetooth Control for the Car</li>
+                        <li>Servo Motor</li>
+                        <ol type="a" start="1">
+                            <li>What it is</li>
+                            <li>How to control it</li>
+                        </ol>
                     </ol>
-                    <h2 style="text-decoration: none;">1.0 Car Base Building</h2>
-                    <p id="sub">1.1 List of Components for Car Base</p>
+                    <h2 style="text-decoration: none;">1.0 List of Components</h2>
                     <img id="components" src="images/components.png">
                     <ul style="list-style-type: none; font-style: italic;">
+                        <li style="text-decoration: underline;">Car Base</li>
                         <li>2 x chassis</li>
                         <li>4 x wheel</li>
                         <li>4 x TT Motor</li>
@@ -47,139 +56,189 @@
                         <li>6 x L30+6 F-F Standoffs</li>
                         <br>
                     </ul>
-                    <p id="sub">1.2 Steps of Assembly</p>
+
+                    <img id="components" src="images/boardcomponent.png">
+                    <ul style="list-style-type: none; font-style: italic;">
+                        <li style="text-decoration: underline;">Electronics</li>
+                        <li>1 x Terminal Block </li>
+                        <li>1 x Breadboard</li>
+                        <li>1 x Battery Holder</li>
+                        <li>2 x 18650 Rechargeable Batteries</li>
+                        <li>1 x ESP32-WROOM-32 (38 Pins)</li>
+                        <li>1 x L298N Motor Driver</li>
+                        <li>1 x USB-A to Type-C Cable</li>
+                        <li>1 x 10 cm Female-Male Jumper Wires</li>
+                        <li>1 x 20 cm Female-Male Jumper Wires</li>
+                        <li>1 x 10 cm Male-Male Jumper Wires</li>
+                        <li>1 x 20 cm Male-Male Jumper Wires</li>
+                        <li></li>
+                        <li style="text-decoration: underline;">Equipment</li>
+                        <li>1 x Precision Screwdriver Set</li>
+                    </ul>
+
+
+                    <p id="sub">1.1 Steps of Assembly of Car Base</p>
                     <table id="assembly">
                         <tr>
-                            <td><img src="images/step1.png"><p id="desc" style="font-style: italic; margin-left: 10px; margin-right: 10px; margin-bottom: 10px;">Step 1: Insert the fasteners into the chassis after tearing off the yellow protection wraps of the chassis, the fasteners and the code wheels.</p></td>
-                            <td><img src="images/step2.png"><p id="desc" style="font-style: italic; margin-left: 10px; margin-right: 10px; margin-bottom: 10px;">Step 2: Install the code wheels and fix the motors to the chassis. (Attention: The copper sheets of the leading wires of the motors should face outward, on the same side as the wheels)</p></td>
+                            <td><img src="images/step3.png">
+                                <p id="desc" style="font-style: italic; margin-left: 10px; margin-right: 10px; margin-bottom: 10px;">Step 1: Insert the fasteners and fix the motors to the chassis one by one, then tighten the screws and nuts.</p>
+                                <p id="desc" style="color: red; font-style: italic; margin-left: 10px; margin-right: 10px;">Attention: </p>
+                                <ul style="font-style: italic; margin-left: 10px; margin-right: 10px; margin-bottom: 10px;">
+                                    <li>The motors should face each other with the copper tabs of their leading wires pointing outward.</li>
+                                    <li>The screw heads (the blunt ends) should also be pointing outward.</li>
+                                </ul>
+                            </td>
+                            <td><img src="images/step4.png"><p id="desc" style="font-style: italic; margin-left: 10px; margin-right: 10px; margin-bottom: 10px;">Step 2: Hold the chassis tightly and insert the wheels to the motors.</p></td>
                         </tr>
                         <tr>
-                            <td><img src="images/step3.png"><p id="desc" style="font-style: italic; margin-left: 10px; margin-right: 10px; margin-bottom: 10px;">Step 3: After fixing the motors to the chassis, insert and tighten the screws.</p></td>
-                            <td><img src="images/step4.png"><p id="desc" style="font-style: italic; margin-left: 10px; margin-right: 10px; margin-bottom: 10px;">Step 4: Hold the chassis tightly and insert the wheels to the motors.</p></td>
-                        </tr>
-                        <tr>
-                            <td><img src="images/step5.png"><p id="desc" style="font-style: italic; margin-left: 10px; margin-right: 10px; margin-bottom: 10px;">Step 5: Insert the spacers, tighten them with screws from the bottom and then with screws from the upper side. Installation is then completed.</p></td>
-                            <td><img src="images/step6.png"><p id="desc" style="text-align: center; font-style: italic; margin-left: 10px; margin-right: 10px; margin-bottom: 10px;">Completed installation</p></td>                       
+                            <td><img src="images/step5.png"><p id="desc" style="font-style: italic; margin-left: 10px; margin-right: 10px; margin-bottom: 10px;">Step 3: Insert the standoffs, tighten them with screws from the bottom, then with screws from the upper side. Installation is then completed.</p></td>
+                            <td><img src="images/step6.png"><p id="desc" style="text-align: center; font-style: italic; margin-left: 10px; margin-right: 10px; margin-bottom: 10px;">Completed installation.</p></td>                       
                         </tr>
                     </table>
                     <br>
-                    <p id="sub">1.3 Understanding the L298N Motor-Driver</p>
-                    <img id="components" src="images/buck.png" style="width: 80%;">
-                    <div id="caption">Figure 1.1</div>
-                    <img id="components" src="images/motor.png">
-                    <div id="caption">Figure 1.2</div>
-                    <p id="sub_bold">NOTE: When connecting the wires, the actual slot does not matter as long as positive and negative are in the same place.</p>
-                    <p id="sub_bold">Motor A (left side)</p>
+                    <p id="sub">1.2 Overall Schematics</p>
+                    <img id="components" src="images/schematics.png" style="width: 100%;">
+                    <p id="sub" style="font-weight: bold;">SYSTEM FLOW DIAGRAM</p>
+                    <img id="components" src="images/flow.png" style="width: 100%;">
+                    <p id="desc" style="text-align: center;">ESP32 → Motor driver → Motor→ wheels</p>
+                    <p id="sub">1.3 Buck Converter</p>
+                    <img id="components" src="images/buckconvert.png" style="height: 30%; width: auto;">
+                    <div id="caption">5V Fixed USB Buck Converter</div>
+                    <p id="sub_bold">What is a Buck Converter?</p>
+                    <p id="desc">A buck converter is a DC-to-DC power supply that reduces a higher input voltage to a lower output voltage.</p>
+                    <p id="desc" style="font-style: italic;">*Direct Current (DC): electric current that flows in one direction only.</p>
+                    <p id="sub_bold">Why we need it:</p>
                     <ul>
-                        <li>OUT1</li>
-                        <li>OUT2</li>
+                        <li>Two 18650 batteries in series provide <strong>7.4V nominal</strong> (up to <strong>8.4V fully charged</strong>), but the ESP32 only operates at <strong>3.3V–5V.</strong></li>
+                        <li>A buck converter steps down the voltage safely to <strong>5V</strong>, preventing damage.</li>
+                        <li>It provides <strong>stable voltage</strong>, avoiding resets, and efficiently supplies the required current.</li>
                     </ul>
-                    <p id="desc" style="padding-bottom: 10px;">These are where the first pair of motors will connect to the top two motors in Figure 1.2.</p>
-                    <p id="sub_bold">Motor B (Right Side)</p>
+                    <p id="sub_bold">5V Fixed USB Buck Converter</p>
                     <ul>
-                        <li>OUT3</li>
-                        <li>OUT4</li>
-                    </ul>
-                    <p id="desc" style="padding-bottom: 10px;">These are where the second pair of motors will connect to the bottom two motors.</p>
-                    <p id="sub">1.4 Control Pins</p>
-                    <p id="sub_bold">NOTE: They are shown on the bottom row of Figure 1.1.</p>
-                    <p id="sub_bold">IN1, IN2</p>
-                    <ul id="pins">
-                        <li>Control direction for <strong>Motor A</strong></li>
-                        <li>IN1 HIGH + IN2 LOW → forward</li>
-                        <li>IN1 LOW + IN2 HIGH → reverse</li>
-                    </ul>
-                    <p id="sub_bold">IN3, IN4</p>
-                    <ul id="pins">
-                        <li>Control direction for <strong>Motor B</strong></li>
-                        <li>Same logic as above</li>
-                        <br>
-                    </ul>
-                    <p id="sub_bold">Power Section (Bottom Left – VCC, GND, 5V)</p>
-                    <p id="sub_bold">VCC</p>
-                    <ul id="pins">
-                        <li>The main motor power input</li>
-                        <li>Connect to battery</li>
-                    </ul>
-                    <p id="sub_bold">GND</p>
-                    <ul id="pins">
-                        <li>Battery ground</li>
-                        <li>MUST also connect to ESP32 GND</li>
-                        <li>Common Ground which is connected to ESP32 and Battery is required for signals to make sense.</li>
-                    </ul>
-                    <p id="sub_bold">5V</p>
-                    <ul id="pins">
-                        <li>Supplies 5V to Arduino <strong>only if the 5V Enable Jumper is installed.</strong></li>
-                    </ul>
-                    <p id="sub">1.5 Wiring the Motors (Using Labelled OUT Pins)</p>
-                    <p id="desc"><strong>Channel A</strong> → OUT1 & OUT2</p>
-                    <p id="desc">Connect both front motors in parallel:</p>
-                    <ul id="pins">
-                        <li>Red wires → OUT1</li>
-                        <li>Black wires → OUT2</li>
-                    </ul>
-                    <p id="desc"><strong>Channel B</strong> → OUT3 & OUT4</p>
-                    <p id="desc">Connect both rear motors in parallel:</p>
-                    <ul id="pins">
-                        <li>Red wires → OUT3</li>
-                        <li>Black wires → OUT24</li>
-                    </ul>
-                    <p id="desc">Remember to explain polarity:</p>
-                    <p id="desc">“If a motor spins backwards, swap the two wires. Don’t change the code; just flip the wires.”</p>
-                    <p id="sub">1.6 Mounting Everything With Standoffs</p>
-                    <img id="components" src="images/standoff.png">
-                    <div id="caption">Figure 1.3</div>
-                    <p id="desc">Purpose of the standoffs:</p>
-                    <ul id="pins">
-                        <li>Lifts the electronics platform</li>
-                        <li>Prevents short circuits</li>
-                        <li>Provides space for motor wires and battery</li>
-                        <li>Makes the robot look neat and stable</li>
-                    </ul>
-                    <p id="sub">1.7 How to Install</p>
-                    <ol>
-                        <li>Insert four screws at each corner of the chassis from the bottom of the chassis into the standoff.</li>
-                        <li>The standoff becomes a vertical pillar.</li>
-                        <li>Place the electronics plate (top deck) on the standoffs.</li>
-                        <li>Secure with screws from the top.</li>
-                        <li>Mount the L298N and Arduino/ESP32 onto the elevated platform.</li>
-                    </ol>
-                    <img id="components" src="images/arduino.png">
-                    <div id="caption">Figure 1.4 (Note that there are 4 motors to be connected as shown in Figure 1.2)</div>
-                    <p id="desc"><strong>NOTE:</strong> Ignore the Enable pins as we will not be needing them in this workshop.</p>
-                    <img id="components" src="images/board.png">
-                    <div id="caption">Above is a picture of the ESP32 and the board it is mounted on for better connection. (Still following Figure 1.4)</div>
-                    <p id="sub_bold">Connecting the Motor driver to The ESP32 (pins can be changed)</p>
+                        <li>Input voltage: DC 7.5 - 28V</li>
+                        <li>Fixed Output Voltage: 5.0V DC</li>
+                        <li>Output Current: 2A Continues (3A peak)</li>
+                    </ul>                    
+                    <p id="sub_bold">Conenction Diagram</p>
+                    <img id="components" src="images/connection.png" style="width: 100%;">
+                    <p id="sub">1.4 L298N Motor-Driver</p>
+                    <img id="components" src="images/buck.png" style="width: 100%;">
+                    <p id="sub">1.4.1 Output Terminals (OUT1, OUT2, OUT3, OUT4)</p>
+                    <img id="components" src="images/output.png">
+                    <table id="driver">
+                        <tr>
+                            <th>Motors A (Left Side)</th>
+                            <th>Motors B (Right Side)</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <ul style="margin: 0;">
+                                    <li>Black wires → OUT1</li>
+                                    <li>Red wires → OUT2</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul style="margin: 0;">
+                                    <li>Red wires → OUT3</li>
+                                    <li>Black wires → OUT4</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                    <p id="desc" style="font-style: italic;">*<span style="color: red">NOTE: </span> Ensure that for both Motors A and B, each output terminal has the red wires paired together and the black wires paired together. DO NOT mix positive and negative wires in the same terminal.</p>
+                    <p id="sub">1.4.2 Power Pins (VCC, GND, 5V)</p>
+                    <img id="components" src="images/powerpins.png">
+                    <table id="driver">
+                        <tr>
+                            <th>VCC (+12V)</th>
+                            <td>
+                                <ul>
+                                    <li>Main power input for motors</li>
+                                    <li>Often labeled +12V, but supports 5V–46V DC</li>
+                                </ul>
+                                <p id="desc" style="font-style: italic; margin: 10px;">*NOTE: However, TT motors receive slightly less voltage than supplied to VCC. To learn more: 
+                                <a href="https://lastminuteengineers.com/l298n-dc-stepper-driver-arduino-tutorial/#power-pins">Power Pins - Last Minute Engineers</a>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>GND</th>
+                            <td>
+                                <ul>
+                                    <li>Common ground for the module</li>
+                                    <li>Motor power supply and ESP32 must share this ground</li>
+                                </ul>
+                                <p id="desc" style="font-style: italic; margin: 10px;">*NOTE: Common ground connecting the ESP32 and battery is required for the signals to function correctly.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>5V</th>
+                            <td>
+                                <ul>
+                                    <li>Supplies power to the chip’s internal logic</li>
+                                </ul>
+                                <p id="desc" style="font-style: italic; margin: 10px;">*NOTE: This pin can usually be ignored, as the driver is able to draw power from VCC and automatically provides 5V to the logic circuits.</p>
+                                <p id="desc" style="margin: 10px;">To learn more: <a href="https://lastminuteengineers.com/l298n-dc-stepper-driver-arduino-tutorial/#onboard-5v-regulator-and-jumper">On-board 5V Regulator and Jumper - Last Minute Engineers</a></p>
+                            </td>
+                        </tr>
+                    </table>
+                    <p id="sub">1.4.3 Direction Control Pins (IN1, IN2, IN3, IN4)</p>
+                    <img id="components" src="images/controlpins.png">
+                    <p id="desc">The motor driver has two direction control pins for each motor. The IN1 and IN2 pins control the spinning direction of motors A, while the IN3 and IN4 pins control the spinning direction of motors B.</p>
+                    <p id="desc">By setting different combinations of HIGH or LOW signals on these pins, you can make the motors spin forward, backward, or stop.</p>
+                    <table id="driver">
+                        <tr>
+                            <th>IN1, IN2 (Motors A)</th>
+                            <th>IN3, IN4 (Motors B)</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <ul style="margin: 0;">
+                                    <li>IN1 HIGH + IN2 LOW → forward</li>
+                                    <li>IN1 LOW + IN2 HIGH → reverse</li>
+                                    <li>IN1 LOW + IN2 LOW → stop</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul style="margin: 0;">
+                                    <li>IN3 HIGH + IN4 LOW → forward</li>
+                                    <li>IN3 LOW + IN4 HIGH → reverse</li>
+                                    <li>IN3 LOW + IN4 LOW → stop</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                    <p id="sub_bold">PIN Connection Table</p>
                     <table id="driver">
                         <tr>
                             <th>L298N Pin</th>
-                            <th>Connection on ESP32</th>
-                            <th>Direction</th>
+                            <th>Connect to ESP32</th>
+                            <th>Functions</th>
                         </tr>
                         <tr>
                             <td>IN1</td>
-                            <td>D33</td>
-                            <td>Motor A direction</td>
+                            <td>D27</td>
+                            <td>Motor A Direction</td>
                         </tr>
                         <tr>
                             <td>IN2</td>
-                            <td>D25</td>
-                            <td>Motor A direction</td>
+                            <td>D26</td>
+                            <td>Motor A Direction</td>
                         </tr>
                         <tr>
                             <td>IN3</td>
-                            <td>D26</td>
-                            <td>Motor B direction</td>
+                            <td>D25</td>
+                            <td>Motor B Direction</td>
                         </tr>
                         <tr>
                             <td>IN4</td>
-                            <td>D27</td>
-                            <td>Motor B direction</td>
+                            <td>D33</td>
+                            <td>Motor B Direction</td>
                         </tr>
                         <tr>
                             <td>GND</td>
                             <td>GND</td>
-                            <td>Common ground</td>
+                            <td>Common Ground</td>
                         </tr>
                     </table>
                     <br>
