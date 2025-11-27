@@ -16,12 +16,18 @@ body {
 }
 
 #nav {
+    width: 100%;
     display: flex;
+    top: 0;
     list-style-type: none;
     background-color: rgb(60, 35, 252);
-    width: 100%;
     height: 48px;
     box-shadow: 3px 3px 10px gray;
+    position: fixed; /* CHANGED from sticky */
+    top: 0;
+    left: 0;         /* Ensures it starts at the edge */
+    width: 100%;     /* Required because fixed elements lose their natural width */
+    z-index: 1000;   /* Ensures it floats ABOVE your images and text */
 }
 
 #nav a {
@@ -46,23 +52,28 @@ body {
 
 #main {
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 2fr 5fr;
     margin-left: 64px;
     margin-right: 64px;
     gap: 50px;  
-    width: fit-content;
+    padding-top: 48px;
 }
 
 #left_side {
+    top: 0;
     margin-top: 36px;
     padding: 0;
     display: inline-flex;
     flex-direction: column;
-    position: sticky;
-    align-self: start;
 }
 
-#left_side a {
+#left_side #links {
+    display: inline-flex;
+    flex-direction: column;
+    position: fixed;
+}
+
+#left_side #links a{
     margin-bottom: 12px;
     text-decoration: none;
     color: black;

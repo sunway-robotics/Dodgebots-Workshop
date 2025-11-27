@@ -14,10 +14,12 @@
         </div>
         <div id="main">
             <div id="left_side">
-                <a href="index.html" onclick="welcome()" id="wel">Dodgebots Workshop</a>
-                <a href="#" onclick="tutorial1()" id="tut1">Part 1: Introduction to ESP32 and Components</a>
-                <a href="tutorial2.html" onclick="tutorial2()" id="tut2">Part 2: 3D Design & Printing</a>
-            </div>
+                <div id="links">
+                    <a href="index.html" onclick="welcome()" id="wel">Dodgebots Workshop</a>
+                    <a href="#" onclick="tutorial1()" id="tut1">Part 1: Introduction to ESP32 and Components</a>
+                    <a href="tutorial2.html" onclick="tutorial2()" id="tut2">Part 2: 3D Design & Printing</a>
+                </div>
+                </div>
             <div id="right_side">
                 <div id="tutorial1">
                     <div id="title">
@@ -97,12 +99,12 @@
                     </table>
                     <br>
                     <p id="sub">1.2 Overall Schematics</p>
-                    <img id="components" src="images/schematics.png" style="width: 100%;">
+                    <img id="components" src="images/schematics.png" style="width: 75%;">
                     <p id="sub" style="font-weight: bold;">SYSTEM FLOW DIAGRAM</p>
-                    <img id="components" src="images/flow.png" style="width: 100%;">
+                    <img id="components" src="images/flow.png" style="width: 75%;">
                     <p id="desc" style="text-align: center;">ESP32 → Motor driver → Motor→ wheels</p>
                     <p id="sub">1.3 Buck Converter</p>
-                    <img id="components" src="images/buckconvert.png" style="height: 30%; width: auto;">
+                    <img id="components" src="images/buckconvert.png" style="width: 30%">
                     <div id="caption">5V Fixed USB Buck Converter</div>
                     <p id="sub_bold">What is a Buck Converter?</p>
                     <p id="desc">A buck converter is a DC-to-DC power supply that reduces a higher input voltage to a lower output voltage.</p>
@@ -120,9 +122,9 @@
                         <li>Output Current: 2A Continues (3A peak)</li>
                     </ul>                    
                     <p id="sub_bold">Conenction Diagram</p>
-                    <img id="components" src="images/connection.png" style="width: 100%;">
+                    <img id="components" src="images/connection.png">
                     <p id="sub">1.4 L298N Motor-Driver</p>
-                    <img id="components" src="images/buck.png" style="width: 100%;">
+                    <img id="components" src="images/buck.png">
                     <p id="sub">1.4.1 Output Terminals (OUT1, OUT2, OUT3, OUT4)</p>
                     <img id="components" src="images/output.png">
                     <table id="driver">
@@ -273,7 +275,18 @@
                         <li>TX0/RX0 (default)</li>
                         <li>Can remap to other GPIOs</li>
                     </ul>
-                    <p id="sub">2.1 Steps to Connect ESP32 to Your Laptop</p>
+                    <p id="sub">2.1 Steps to Install Port Driver</p>
+                    <p id="sub">Windows</p>
+                    <p id="desc">Check Device Manager before downloading the driver. If you see the warning symbol, please download the driver, or else update it.</p>
+                    <img id="components" src="images/devicemanager.png">
+                    <p id="desc">Driver Website: <a href="https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads">https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads</a></p>
+                    <p id="desc"><strong>Step 1:</strong> Install the file from the provided Link</p>
+                    <p id="desc"><strong>Step 2:</strong> Open Device Manager</p>
+                    <p id="desc"><strong>Step 3:</strong> Right click on the warning and Update Driver</p>
+                    <p id="desc"><strong>Step 4:</strong> Select Browse my computer for drivers</p>
+                    <p id="desc"><strong>Step 5:</strong> Browse and select the downloaded ESP32 driver file as shown in the picture</p>
+                    <img id="components" src="images/folder.png">
+                    <p id="sub">2.2 Steps to Connect ESP32 to Your Laptop</p>
                     <p id="sub_bold">Step 1: Install Arduino IDE</p>
                     <p id="desc">Latest version recommended.</p>
                     <p id="sub_bold">Step 2: Install ESP32 Boards</p>
@@ -286,7 +299,9 @@
                     <p id="sub_bold">Step 3: Debugging Process for Port Identification</p>
                     <p id="sub">Step 1</p>
                     <img id="components" src="images/debug1.png">
+                    <div id="caption">NOTE: Do not plug your ESP32 into your computer yet.</div>
                     <p id="sub">Step 2</p>
+                    <p id="desc">Plug in ESP32 and observe the new popped up port</p>
                     <img id="components" src="images/debug2.png">
                     <p id="sub">Step 3</p>
                     <p id="desc">Select the new port and click "Select other board and port...."</p>
@@ -308,8 +323,8 @@
                         }<br>
                     </code>
                     </div>
-                    <p id="desc">Press and hold the BOOT button when you see the "Connecting" message. Let go when the terminal shows the "Writing (value) %" message. </p>
                     <p id="desc" style="text-decoration: underline;">Upload → If the LED blinks → ESP32 is working perfectly.</p>
+                    <p id="desc">Press and hold the BOOT button when you see the "Connecting" message. Let go when the terminal shows the "Writing (value) %" message. </p>
                     <img id="components" src="images/boot.png">
                     <p id="sub_bold">Step 5: Controlling the Robot Car</p>
                     <div id="code">
@@ -367,12 +382,6 @@ void handleCommand(char c) {<br>
 &nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN3, HIGH);<br>
 &nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN4, LOW);<br>
 &nbsp;&nbsp;}<br>
-&nbsp;&nbsp;else if (c == 'A') { // Diagonal<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN1, HIGH);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN2, LOW);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN3, LOW);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN4, HIGH);<br>
-&nbsp;&nbsp;}<br>
 &nbsp;&nbsp;else if (c == 'S') { // Stop<br>
 &nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN1, LOW);<br>
 &nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN2, LOW);<br>
@@ -382,12 +391,88 @@ void handleCommand(char c) {<br>
 }<br>
 </code>
 </div>
+<p id="desc" style="font-weight: bold;">1) Required Libraries</p>
+<div id="code">
+    <code>
+        #include &lt;BluetoothSerial.h&gt;
+    </code>
+</div>
+<p id="desc" style="font-weight: bold;">2) Bluetooth Object</p>
+<div id="code">
+    <code>
+        BluetoothSerial SerialBT;
+    </code>
+</div>
+<p id="desc" style="font-weight: bold;">3) Pin Definitions</p>
+<div id="code">
+    <code>
+        #define IN1    33
+        #define IN2    25
+        #define IN3    26
+        #define IN4    27
+    </code>
+</div>
+<p id="desc" style="font-weight: bold;">4) Setup Function</p>
+<div id="code">
+    <code>
+        void setup() {
+            SerialBT.begin("ESP32Bot");  // Change according to your team name
+            pinMode(IN1, OUTPUT);
+            pinMode(IN2, OUTPUT);
+            pinMode(IN3, OUTPUT);
+            pinMode(IN4, OUTPUT);
+
+            // Start fully stopped
+            digitalWrite(IN1, LOW);
+            digitalWrite(IN2, LOW);
+            digitalWrite(IN3, LOW);
+            digitalWrite(IN4, LOW);
+        }
+    </code>
+</div>
+<p id="desc" style="font-weight: bold;">5) Helper Function</p>
+<div id="code">
+    <code>
+        void handleCommand(char c) {
+            if (c == 'F') {        // Forward
+                digitalWrite(IN1, HIGH);
+                digitalWrite(IN2, LOW);
+                digitalWrite(IN3, HIGH);
+                digitalWrite(IN4, LOW);
+            }
+            else if (c == 'B') {   // Backward
+                digitalWrite(IN1, LOW);
+                digitalWrite(IN2, HIGH);
+                digitalWrite(IN3, LOW);
+                digitalWrite(IN4, HIGH);
+            }
+            else if (c == 'L') {   // Left
+                digitalWrite(IN1, HIGH);
+                digitalWrite(IN2, LOW);
+                digitalWrite(IN3, LOW);
+                digitalWrite(IN4, LOW);
+            }
+            else if (c == 'R') {   // Right
+                digitalWrite(IN1, LOW);
+                digitalWrite(IN2, LOW);
+                digitalWrite(IN3, HIGH);
+                digitalWrite(IN4, LOW);
+            }
+            else if (c == 'S') {   // Stop
+                digitalWrite(IN1, LOW);
+                digitalWrite(IN2, LOW);
+                digitalWrite(IN3, LOW);
+                digitalWrite(IN4, LOW);
+            }
+        }
+    </code>
+</div>
                     <p id="sub_bold">Step 6: Bluetooth</p>
                     <p id="sub">Downloading the Bluetooino App</p>
                     <p id="desc">Download the app from the Google Play Store</p>
                     <p id="desc"><strong>*Note: </strong>This app will only work with Android devices.</p>
                     <img id="components" src="images/playstore.png">
-                    <p id="sub">Using the Bluetooino App</p>
+                    <p id="sub">After Opening App: App Interface</p>
                     <table id="bluetooth">
                         <tr>
                             <td><img src="images/step1.jpeg"></td>
@@ -395,31 +480,28 @@ void handleCommand(char c) {<br>
                             <td><img src="images/step3.jpeg"></td>
                         </tr>
                         <tr>
-
                             <td><img src="images/step4.jpeg"></td>
                             <td><img src="images/step5.jpeg"></td>
                             <td><img src="images/step6.jpeg"></td>
+
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td ><img src="images/step7.png"></td>
+                            <td></td>
                         </tr>
                     </table>
-                    <h2 style="text-decoration: none;">3.0 Buck Converter</h2>
-                    <p id="sub_bold">1. What Is a Buck Converter?</p>
-                    <p id="desc">A buck converter reduces a higher voltage (ex: battery) to a lower voltage (ex: 5V).<br><br>
-                        For robotics:<br><br>
-                        Smooth power<br><br>
-                        High current<br><br>
-                        Stable voltage → no random resets<br><br>
-                    </p>
-                    <p id="sub_bold">2. Diagram Input Side</p>
-                    <p id="desc">7V–24V battery or adapter<br><br>
-                        Positive → VIN<br><br>
-                        Negative → GND<br><br>
-                        Output Side (USB Female)<br><br>
-                        Output is fixed at 5V<br><br>
-                        Connect USB cable → ESP32<br><br>
-                        or USB splitter → multiple devices<br><br>
-                    </p>
-                    <h2 style="text-decoration: none;">4.0 Servo Motor Calibration</h2>
-                    <p id="sub_bold">What is Servo Calibration?</p>
+                    <h2 style="text-decoration: none;">3.0 Servo Motor</h2>
+                    <p id="sub">3.1 What is a Servo Motor?</p>
+                    <p id="desc">A servo motor is a rotary actuator that provides precise control over rotational position. In this competition, the servo motor is used to hold the catapult in place and release it for shooting.</p>
+                    <img id="components" src="images/servo.png">
+                    <p id="sub">3.2 How Do We Control a Servo Motor</p>
+                    <img id="components" src="images/servoturn.png">
+                    <p id="desc">The position of the servo (angle) is controlled with the PWM signal.</p>
+                    <img id="components" src="images/pwm.png">
+                    <p id="sub">Connection of Servo to ESP32</p>
+                    <img id="components" src="images/connect.png">
+                    <p id="sub">3.3 What is Servo Calibration?</p>
                     <p id="desc">Calibration ensures:</p>
                     <ul id="pins">
                         <li>Each servo starts at the correct zero (home) angle</li>
@@ -429,39 +511,26 @@ void handleCommand(char c) {<br>
                     </ul>
                     <p id="sub_bold">Why do we calibrate?</p>
                     <ul id="pins">
-                        <li>So all legs/arms behave identical</li>
                         <li>To avoid torque overload</li>
-                        <li>To ensure accurate walking / rotation / gripping</li>
+                        <li>To ensure accurate rotation</li>
                         <li>To protect expensive servos (especially MG996R, DS3218, etc.)</li>
                     </ul>
-                    <p id="sub_bold">Our Project’s Servo Calibration Steps</p>
-                    <p id="sub">Step 1: Power the Servo Correctly</p>
-                    <ul id="pins">
-                        <li>Use the <strong>buck converter → 6V</strong> (or 5V if servo is cheap)</li>
-                        <li>Never power servos from Arduino 5V pin</li>
-                    </ul>
-                    <p id="sub">Step 2: Upload the Centering Code</p>
-                    <div id="code">
-<code>
-#include &lt;Servo.h&gt; &nbsp; &nbsp; // 1) Required library<br>
-<br>
-// 2) Pin definitions<br>
-#define SERVO_PIN 18 &nbsp; &nbsp; &nbsp; // PWM pin connected to servo signal<br>
-<br>
-// 3) Angle conversion constants<br>
+                    <p id="sub">4.2.1 Servo Calibration Steps</p>
+        <p id="sub_bold">Full Code:</p>
+        <div id="code">
+            <code>
+                #include &lt;Servo.h&gt;<br>
+#define SERVO_PIN 18<br>
 const int SERVO_MIN_ANGLE = 0;<br>
 const int SERVO_MAX_ANGLE = 180;<br>
-const int SERVO_CENTER = 90; &nbsp; &nbsp; // Default center value<br>
+const int SERVO_CENTER = 90;<br>
+Servo myServo;<br>
+int offset = 0;<br>
 <br>
-// 4) Global variables<br>
-Servo myServo; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Servo object<br>
-int offset = 0; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Offset for fine-tuning the center<br>
 <br>
-// 5) Helper function for calibration<br>
 void moveToAngle(int angle) {<br>
 &nbsp;&nbsp;int correctedAngle = angle + offset;<br>
 <br>
-&nbsp;&nbsp;// Limit protection<br>
 &nbsp;&nbsp;if (correctedAngle &lt; SERVO_MIN_ANGLE) correctedAngle = SERVO_MIN_ANGLE;<br>
 &nbsp;&nbsp;if (correctedAngle &gt; SERVO_MAX_ANGLE) correctedAngle = SERVO_MAX_ANGLE;<br>
 <br>
@@ -469,7 +538,6 @@ void moveToAngle(int angle) {<br>
 &nbsp;&nbsp;delay(800);<br>
 }<br>
 <br>
-// 6) SETUP FUNCTION<br>
 void setup() {<br>
 &nbsp;&nbsp;Serial.begin(115200);<br>
 &nbsp;&nbsp;myServo.attach(SERVO_PIN);<br>
@@ -479,9 +547,8 @@ void setup() {<br>
 &nbsp;&nbsp;moveToAngle(SERVO_CENTER);<br>
 }<br>
 <br>
-// 7) LOOP FUNCTION<br>
+<br>
 void loop() {<br>
-&nbsp;&nbsp;// TEST FULL RANGE<br>
 &nbsp;&nbsp;Serial.println("Moving to 0 degrees...");<br>
 &nbsp;&nbsp;moveToAngle(0);<br>
 <br>
@@ -495,9 +562,9 @@ void loop() {<br>
 &nbsp;&nbsp;moveToAngle(90);<br>
 <br>
 &nbsp;&nbsp;delay(1500);<br>
-}<br>
-</code>
-</div>
+}
+            </code>
+        </div>
         <p id="sub_bold">1) Required Libraries</p>
         <div id="code">
         <code>#include &lt;Servo.h&gt;</code>
@@ -559,6 +626,7 @@ void loop() {<br>
 }<br>
 </code>
 </div>
+<br>
                 </div>
             </div>
         </div>
