@@ -61,6 +61,7 @@ body {
 
 .pdf {
     width: 100%;
+    height: 100%;
     aspect-ratio: 4 / 3;
 }
 
@@ -120,6 +121,15 @@ body {
 
 #right_side #tutorial1, #right_side #tutorial2 {
     display: none;
+}
+
+#right_side #welcome {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#right_side #welcome iframe {
+    height:75vh;
 }
 
 #footer {
