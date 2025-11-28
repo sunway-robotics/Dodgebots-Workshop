@@ -59,6 +59,11 @@ body {
     padding-top: 48px;
 }
 
+.pdf {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+}
+
 #left_side {
     top: 0;
     margin-top: 36px;
@@ -92,7 +97,7 @@ body {
     margin-left: 15px;
 }
 
-#left_side a#wel {
+#left_side a#itinerary {
     font-weight: bold;
 }
 

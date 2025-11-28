@@ -73,7 +73,7 @@ body {
     display: inline-flex;
     flex-direction: column;
     position: fixed;
-    width: 300px;
+    width: 500px;
 }
 
 #left_side #links a{
