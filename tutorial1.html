@@ -16,17 +16,19 @@
             <div id="left_side">
                 <div id="links">
                     <a href="index.html" onclick="welcome()" id="wel">Dodgebots Workshop</a>
-                    <a href="#" onclick="tutorial1()" id="tut1">Part 1: Introduction to ESP32 and Components</a>
-                    <a href="tutorial2.html" onclick="tutorial2()" id="tut2">Part 2: 3D Design & Printing</a>
+                    <a href="#" onclick="tutorial1()" id="tut1">Workshop: Part 1</a>
+                    <div id="inside">
+                        <a href="#carbase">1.0 Car Base Assembly & Electronic Circuitry</a>
+                        <a href="#esp32">2.0 ESP32 & Bluetooth</a>
+                    </div>
+                    <a href="tutorial2.html" onclick="tutorial2()" id="tut2">Workshop: Part 2</a>
                 </div>
                 </div>
             <div id="right_side">
                 <div id="tutorial1">
-                    <div id="title">
-                        <p>Part 1:&nbsp;Introduction to Arduino and Components</p>
-                        <a href="https://github.com/sunway-robotics/Dodgebots-Workshop/tree/main/files/Arduino%20%2B%20Car%20Base"><button><i class="fa fa-download"></i></button></a>
-                    </div>
-                    <h2>INTRODUCTION</h2>
+                        <p>Workshop: Part 1</p>
+                    <section id="carbase">
+                    <h2 style="text-decoration: none;">1.0 Car Base Assembly & Electronic Circuitry</h2>
                     <p id="desc">Today we are assembling a 4-wheel robot base. You will learn about:</p>
                     <ol>
                         <li>Buck Converter Basics </li>
@@ -44,7 +46,7 @@
                             <li>How to control it</li>
                         </ol>
                     </ol>
-                    <h2 style="text-decoration: none;">1.0 List of Components</h2>
+                    <p id="sub">1.1 List of Components</p>
                     <img id="components" src="images/components.png">
                     <ul style="list-style-type: none; font-style: italic;">
                         <li style="text-decoration: underline;">Car Base</li>
@@ -79,7 +81,7 @@
                     </ul>
 
 
-                    <p id="sub">1.1 Steps of Assembly of Car Base</p>
+                    <p id="sub">1.2 Steps of Assembly of Car Base</p>
                     <table id="assembly">
                         <tr>
                             <td><img src="images/step3.png">
@@ -98,12 +100,12 @@
                         </tr>
                     </table>
                     <br>
-                    <p id="sub">1.2 Overall Schematics</p>
+                    <p id="sub">1.3 Overall Schematics</p>
                     <img id="components" src="images/schematics.png" style="width: 75%;">
                     <p id="sub" style="font-weight: bold;">SYSTEM FLOW DIAGRAM</p>
                     <img id="components" src="images/flow.png" style="width: 75%;">
                     <p id="desc" style="text-align: center;">ESP32 → Motor driver → Motor→ wheels</p>
-                    <p id="sub">1.3 Buck Converter</p>
+                    <p id="sub">1.4 Buck Converter</p>
                     <img id="components" src="images/buckconvert.png" style="width: 30%">
                     <div id="caption">5V Fixed USB Buck Converter</div>
                     <p id="sub_bold">What is a Buck Converter?</p>
@@ -123,9 +125,9 @@
                     </ul>                    
                     <p id="sub_bold">Conenction Diagram</p>
                     <img id="components" src="images/connection.png">
-                    <p id="sub">1.4 L298N Motor-Driver</p>
+                    <p id="sub">1.5 L298N Motor-Driver</p>
                     <img id="components" src="images/buck.png">
-                    <p id="sub">1.4.1 Output Terminals (OUT1, OUT2, OUT3, OUT4)</p>
+                    <p id="sub">1.5.1 Output Terminals (OUT1, OUT2, OUT3, OUT4)</p>
                     <img id="components" src="images/output.png">
                     <table id="driver">
                         <tr>
@@ -148,7 +150,7 @@
                         </tr>
                     </table>
                     <p id="desc" style="font-style: italic;">*<span style="color: red">NOTE: </span> Ensure that for both Motors A and B, each output terminal has the red wires paired together and the black wires paired together. DO NOT mix positive and negative wires in the same terminal.</p>
-                    <p id="sub">1.4.2 Power Pins (VCC, GND, 5V)</p>
+                    <p id="sub">1.5.2 Power Pins (VCC, GND, 5V)</p>
                     <img id="components" src="images/powerpins.png">
                     <table id="driver">
                         <tr>
@@ -184,7 +186,7 @@
                             </td>
                         </tr>
                     </table>
-                    <p id="sub">1.4.3 Direction Control Pins (IN1, IN2, IN3, IN4)</p>
+                    <p id="sub">1.5.3 Direction Control Pins (IN1, IN2, IN3, IN4)</p>
                     <img id="components" src="images/controlpins.png">
                     <p id="desc">The motor driver has two direction control pins for each motor. The IN1 and IN2 pins control the spinning direction of motors A, while the IN3 and IN4 pins control the spinning direction of motors B.</p>
                     <p id="desc">By setting different combinations of HIGH or LOW signals on these pins, you can make the motors spin forward, backward, or stop.</p>
@@ -244,7 +246,10 @@
                         </tr>
                     </table>
                     <br>
-                    <h2 style="text-decoration: none;">2.0 ESP32</h2>
+                    </section>
+                    <section id="esp32">
+                    <h2 style="text-decoration: none;">2.0 ESP32 & Bluetooth</h2>
+                    <p id="sub">2.1 What is ESP32?</h2>
                     <p id="desc">ESP32 is a powerful microcontroller used in robotics, IoT, and automation projects. It comes with:</p>
                     <ul id="pins">
                         <li>Dual-core processor (up to 240 MHz)</li>
@@ -275,21 +280,22 @@
                         <li>TX0/RX0 (default)</li>
                         <li>Can remap to other GPIOs</li>
                     </ul>
-                    <p id="sub">2.1 Steps to Install Port Driver</p>
+                    <p id="sub">2.2 Steps to Install Port Driver</p>
                     <p id="sub">Windows</p>
                     <p id="desc">Check Device Manager before downloading the driver. If you see the warning symbol, please download the driver, or else update it.</p>
                     <img id="components" src="images/devicemanager.png">
                     <p id="desc">Driver Website: <a href="https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads">https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads</a></p>
                     <p id="desc"><strong>Step 1:</strong> Install the file from the provided Link</p>
                     <p id="desc"><strong>Step 2:</strong> Open Device Manager</p>
-                    <p id="desc"><strong>Step 3:</strong> Right click on the warning and Update Driver</p>
-                    <p id="desc"><strong>Step 4:</strong> Select Browse my computer for drivers</p>
+                    <p id="desc"><strong>Step 3:</strong> Right click on the warning and press 'Update Driver'</p>
+                    <p id="desc"><strong>Step 4:</strong> Select 'Browse my computer for drivers'</p>
                     <p id="desc"><strong>Step 5:</strong> Browse and select the downloaded ESP32 driver file as shown in the picture</p>
                     <img id="components" src="images/folder.png">
-                    <p id="sub">2.2 Steps to Connect ESP32 to Your Laptop</p>
+                    <p id="desc" style="font-style: italic;">*For MacBook users, you use the same download link as Windows, but most of the time you do not need to install the driver. You only install it if there is an issue, and once installed, it usually works without needing any updates.</p>
+                    <p id="sub">2.3 Steps to Connect ESP32 to Your Laptop</p>
                     <p id="sub_bold">Step 1: Install Arduino IDE</p>
                     <p id="desc">Latest version recommended.</p>
-                    <p id="sub_bold">Step 2: Install ESP32 Boards</p>
+                    <p id="sub_bold">Step 2: Install ESP32 Boards Library</p>
                     <table id="esp">
                         <tr>
                             <td><div id="caption" style="font-weight: bold;">1</div><img src="images/board1.png"><div id="caption">Download this under Board Manager</div></td>
@@ -299,7 +305,7 @@
                     <p id="sub_bold">Step 3: Debugging Process for Port Identification</p>
                     <p id="sub">Step 1</p>
                     <img id="components" src="images/debug1.png">
-                    <div id="caption">NOTE: Do not plug your ESP32 into your computer yet.</div>
+                    <div id="caption">NOTE: Do not plug your ESP32 into your computer yet</div>
                     <p id="sub">Step 2</p>
                     <p id="desc">Plug in ESP32 and observe the new popped up port</p>
                     <img id="components" src="images/debug2.png">
@@ -324,70 +330,72 @@
                     </code>
                     </div>
                     <p id="desc" style="text-decoration: underline;">Upload → If the LED blinks → ESP32 is working perfectly.</p>
-                    <p id="desc">Press and hold the BOOT button when you see the "Connecting" message. Let go when the terminal shows the "Writing (value) %" message. </p>
+                    <p id="desc">*Press and hold the BOOT button when the "Uploading…" notification appears on the bottom right, and release it once the terminal displays “Writing…”.</p>
+                    <p id="desc">P.S.: If it uploads successfully but the program does not take effect, unplug the ESP32 and plug it back in.</p>
                     <img id="components" src="images/boot.png">
                     <p id="sub_bold">Step 5: Controlling the Robot Car</p>
                     <div id="code">
 <code>
-#include &lt;BluetoothSerial.h&gt;<br>
+#include <BluetoothSerial.h><br>
 BluetoothSerial SerialBT;<br>
 <br>
-#define LED_PIN 2<br>
-#define IN1 33<br>
-#define IN2 25<br>
-#define IN3 26<br>
-#define IN4 27<br>
+#define IN1  33<br>
+#define IN2  25<br>
+#define IN3  26<br>
+#define IN4  27<br>
 <br>
 void setup() {<br>
-&nbsp;&nbsp;  SerialBT.begin("ESP32Bot");  // Change according to your team name to avoid duplicates<br>
+  SerialBT.begin("ESP32Bot");  // Change according to your team name<br>
+  pinMode(IN1, OUTPUT);<br>
+  pinMode(IN2, OUTPUT);<br>
+  pinMode(IN3, OUTPUT);<br>
+  pinMode(IN4, OUTPUT);<br>
 <br>
-&nbsp;&nbsp;pinMode(LED_PIN, OUTPUT);<br>
-&nbsp;&nbsp;digitalWrite(LED_PIN, HIGH);<br>
-<br>
-&nbsp;&nbsp;pinMode(IN1, OUTPUT);<br>
-&nbsp;&nbsp;pinMode(IN2, OUTPUT);<br>
-&nbsp;&nbsp;pinMode(IN3, OUTPUT);<br>
-&nbsp;&nbsp;pinMode(IN4, OUTPUT);<br>
+  // Start fully stopped<br>
+  digitalWrite(IN1, LOW);<br>
+  digitalWrite(IN2, LOW);<br>
+  digitalWrite(IN3, LOW);<br>
+  digitalWrite(IN4, LOW);<br>
 }<br>
 <br>
 void loop() {<br>
-&nbsp;&nbsp;if (SerialBT.available()) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;char c = SerialBT.read();<br>
-&nbsp;&nbsp;&nbsp;&nbsp;handleCommand(c);<br>
-&nbsp;&nbsp;}<br>
+  if (SerialBT.available()) {<br>
+    char c = SerialBT.read();<br>
+    handleCommand(c);<br>
+  }<br>
 }<br>
 <br>
 void handleCommand(char c) {<br>
-&nbsp;&nbsp;if (c == 'F') { // Forward<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN1, HIGH);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN2, LOW);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN3, HIGH);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN4, LOW);<br>
-&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;else if (c == 'B') { // Backward<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN1, LOW);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN2, HIGH);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN3, LOW);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN4, HIGH);<br>
-&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;else if (c == 'L') { // Left<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN1, HIGH);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN2, LOW);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN3, LOW);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN4, LOW);<br>
-&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;else if (c == 'R') { // Right<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN1, LOW);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN2, LOW);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN3, HIGH);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN4, LOW);<br>
-&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;else if (c == 'S') { // Stop<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN1, LOW);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN2, LOW);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN3, LOW);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;digitalWrite(IN4, LOW);<br>
-&nbsp;&nbsp;}<br>
+  if (c == 'F') {        // Forward<br>
+    digitalWrite(IN1, HIGH);<br>
+    digitalWrite(IN2, LOW);<br>
+    digitalWrite(IN3, HIGH);<br>
+    digitalWrite(IN4, LOW);<br>
+  }<br>
+  else if (c == 'B') {   // Backward<br>
+    digitalWrite(IN1, LOW);<br>
+    digitalWrite(IN2, HIGH);<br>
+    digitalWrite(IN3, LOW);<br>
+    digitalWrite(IN4, HIGH);<br>
+  }<br>
+  else if (c == 'L') {   // Left<br>
+    digitalWrite(IN1, HIGH);<br>
+    digitalWrite(IN2, LOW);<br>
+    digitalWrite(IN3, LOW);<br>
+    digitalWrite(IN4, LOW);<br>
+  }<br>
+  else if (c == 'R') {   // Right<br>
+    digitalWrite(IN1, LOW);<br>
+    digitalWrite(IN2, LOW);<br>
+    digitalWrite(IN3, HIGH);<br>
+    digitalWrite(IN4, LOW);<br>
+  }<br>
+  else if (c == 'S') {   // Stop<br>
+    digitalWrite(IN1, LOW);<br>
+    digitalWrite(IN2, LOW);<br>
+    digitalWrite(IN3, LOW);<br>
+    digitalWrite(IN4, LOW);<br>
+  }<br>
 }<br>
 </code>
 </div>
@@ -406,73 +414,73 @@ void handleCommand(char c) {<br>
 <p id="desc" style="font-weight: bold;">3) Pin Definitions</p>
 <div id="code">
     <code>
-        #define IN1    33
-        #define IN2    25
-        #define IN3    26
-        #define IN4    27
+        #define IN1    33<br>
+        #define IN2    25<br>
+        #define IN3    26<br>
+        #define IN4    27<br>
     </code>
 </div>
 <p id="desc" style="font-weight: bold;">4) Setup Function</p>
 <div id="code">
     <code>
         void setup() {
-            SerialBT.begin("ESP32Bot");  // Change according to your team name
-            pinMode(IN1, OUTPUT);
-            pinMode(IN2, OUTPUT);
-            pinMode(IN3, OUTPUT);
-            pinMode(IN4, OUTPUT);
-
-            // Start fully stopped
-            digitalWrite(IN1, LOW);
-            digitalWrite(IN2, LOW);
-            digitalWrite(IN3, LOW);
-            digitalWrite(IN4, LOW);
-        }
+            SerialBT.begin("ESP32Bot");  // Change according to your team name<br>
+            pinMode(IN1, OUTPUT);<br>
+            pinMode(IN2, OUTPUT);<br>
+            pinMode(IN3, OUTPUT);<br>
+            pinMode(IN4, OUTPUT);<br>
+<br>
+            // Start fully stopped<br>
+            digitalWrite(IN1, LOW);<br>
+            digitalWrite(IN2, LOW);<br>
+            digitalWrite(IN3, LOW);<br>
+            digitalWrite(IN4, LOW);<br>
+        }<br>
     </code>
 </div>
 <p id="desc" style="font-weight: bold;">5) Helper Function</p>
 <div id="code">
     <code>
-        void handleCommand(char c) {
-            if (c == 'F') {        // Forward
-                digitalWrite(IN1, HIGH);
-                digitalWrite(IN2, LOW);
-                digitalWrite(IN3, HIGH);
-                digitalWrite(IN4, LOW);
-            }
-            else if (c == 'B') {   // Backward
-                digitalWrite(IN1, LOW);
-                digitalWrite(IN2, HIGH);
-                digitalWrite(IN3, LOW);
-                digitalWrite(IN4, HIGH);
-            }
-            else if (c == 'L') {   // Left
-                digitalWrite(IN1, HIGH);
-                digitalWrite(IN2, LOW);
-                digitalWrite(IN3, LOW);
-                digitalWrite(IN4, LOW);
-            }
-            else if (c == 'R') {   // Right
-                digitalWrite(IN1, LOW);
-                digitalWrite(IN2, LOW);
-                digitalWrite(IN3, HIGH);
-                digitalWrite(IN4, LOW);
-            }
-            else if (c == 'S') {   // Stop
-                digitalWrite(IN1, LOW);
-                digitalWrite(IN2, LOW);
-                digitalWrite(IN3, LOW);
-                digitalWrite(IN4, LOW);
-            }
-        }
+        void handleCommand(char c) {<br>
+            if (c == 'F') {        // Forward<br>
+                digitalWrite(IN1, HIGH);<br>
+                digitalWrite(IN2, LOW);<br>
+                digitalWrite(IN3, HIGH);<br>
+                digitalWrite(IN4, LOW);<br>
+            }<br>
+            else if (c == 'B') {   // Backward<br>
+                digitalWrite(IN1, LOW);<br>
+                digitalWrite(IN2, HIGH);<br>
+                digitalWrite(IN3, LOW);<br>
+                digitalWrite(IN4, HIGH);<br>
+            }<br>
+            else if (c == 'L') {   // Left<br>
+                digitalWrite(IN1, HIGH);<br>
+                digitalWrite(IN2, LOW);<br>
+                digitalWrite(IN3, LOW);<br>
+                digitalWrite(IN4, LOW);<br>
+            }<br>
+            else if (c == 'R') {   // Right<br>
+                digitalWrite(IN1, LOW);<br>
+                digitalWrite(IN2, LOW);<br>
+                digitalWrite(IN3, HIGH);<br>
+                digitalWrite(IN4, LOW);<br>
+            }<br>
+            else if (c == 'S') {   // Stop<br>
+                digitalWrite(IN1, LOW);<br>
+                digitalWrite(IN2, LOW);<br>
+                digitalWrite(IN3, LOW);<br>
+                digitalWrite(IN4, LOW);<br>
+            }<br>
+        }<br>
     </code>
 </div>
-                    <p id="sub_bold">Step 6: Bluetooth</p>
+                    <p id="sub_bold">2.3: Bluetooth</p>
                     <p id="sub">Downloading the Bluetooino App</p>
                     <p id="desc">Download the app from the Google Play Store</p>
                     <p id="desc"><strong>*Note: </strong>This app will only work with Android devices.</p>
                     <img id="components" src="images/playstore.png">
-                    <p id="sub">After Opening App: App Interface</p>
+                    <p id="sub"><strong>After Opening App:</strong> App Interface</p>
                     <table id="bluetooth">
                         <tr>
                             <td><img src="images/step1.jpeg"></td>
@@ -491,143 +499,7 @@ void handleCommand(char c) {<br>
                             <td></td>
                         </tr>
                     </table>
-                    <h2 style="text-decoration: none;">3.0 Servo Motor</h2>
-                    <p id="sub">3.1 What is a Servo Motor?</p>
-                    <p id="desc">A servo motor is a rotary actuator that provides precise control over rotational position. In this competition, the servo motor is used to hold the catapult in place and release it for shooting.</p>
-                    <img id="components" src="images/servo.png">
-                    <p id="sub">3.2 How Do We Control a Servo Motor</p>
-                    <img id="components" src="images/servoturn.png">
-                    <p id="desc">The position of the servo (angle) is controlled with the PWM signal.</p>
-                    <img id="components" src="images/pwm.png">
-                    <p id="sub">Connection of Servo to ESP32</p>
-                    <img id="components" src="images/connect.png">
-                    <p id="sub">3.3 What is Servo Calibration?</p>
-                    <p id="desc">Calibration ensures:</p>
-                    <ul id="pins">
-                        <li>Each servo starts at the correct zero (home) angle</li>
-                        <li>Movements are symmetrical</li>
-                        <li>All legs/arms/links start from the same mechanical reference</li>                        
-                        <li>This prevents mechanical binding and burnt gears.</li>
-                    </ul>
-                    <p id="sub_bold">Why do we calibrate?</p>
-                    <ul id="pins">
-                        <li>To avoid torque overload</li>
-                        <li>To ensure accurate rotation</li>
-                        <li>To protect expensive servos (especially MG996R, DS3218, etc.)</li>
-                    </ul>
-                    <p id="sub">4.2.1 Servo Calibration Steps</p>
-        <p id="sub_bold">Full Code:</p>
-        <div id="code">
-            <code>
-                #include &lt;Servo.h&gt;<br>
-#define SERVO_PIN 18<br>
-const int SERVO_MIN_ANGLE = 0;<br>
-const int SERVO_MAX_ANGLE = 180;<br>
-const int SERVO_CENTER = 90;<br>
-Servo myServo;<br>
-int offset = 0;<br>
-<br>
-<br>
-void moveToAngle(int angle) {<br>
-&nbsp;&nbsp;int correctedAngle = angle + offset;<br>
-<br>
-&nbsp;&nbsp;if (correctedAngle &lt; SERVO_MIN_ANGLE) correctedAngle = SERVO_MIN_ANGLE;<br>
-&nbsp;&nbsp;if (correctedAngle &gt; SERVO_MAX_ANGLE) correctedAngle = SERVO_MAX_ANGLE;<br>
-<br>
-&nbsp;&nbsp;myServo.write(correctedAngle);<br>
-&nbsp;&nbsp;delay(800);<br>
-}<br>
-<br>
-void setup() {<br>
-&nbsp;&nbsp;Serial.begin(115200);<br>
-&nbsp;&nbsp;myServo.attach(SERVO_PIN);<br>
-<br>
-&nbsp;&nbsp;Serial.println("Starting Servo Calibration...");<br>
-&nbsp;&nbsp;Serial.println("Centering Servo...");<br>
-&nbsp;&nbsp;moveToAngle(SERVO_CENTER);<br>
-}<br>
-<br>
-<br>
-void loop() {<br>
-&nbsp;&nbsp;Serial.println("Moving to 0 degrees...");<br>
-&nbsp;&nbsp;moveToAngle(0);<br>
-<br>
-&nbsp;&nbsp;Serial.println("Moving to 90 degrees...");<br>
-&nbsp;&nbsp;moveToAngle(90);<br>
-<br>
-&nbsp;&nbsp;Serial.println("Moving to 180 degrees...");<br>
-&nbsp;&nbsp;moveToAngle(180);<br>
-<br>
-&nbsp;&nbsp;Serial.println("Returning to center...");<br>
-&nbsp;&nbsp;moveToAngle(90);<br>
-<br>
-&nbsp;&nbsp;delay(1500);<br>
-}
-            </code>
-        </div>
-        <p id="sub_bold">1) Required Libraries</p>
-        <div id="code">
-        <code>#include &lt;Servo.h&gt;</code>
-        </div>
-        <p id="sub_bold">2) Pin Definitions</p>
-        <div id="code">
-        <code>#define SERVO_PIN 18</code>
-        </div>
-        <p id="sub_bold">3) Angle Conversion Constants</p>
-        <div id="code">
-        <code>const int SERVO_MIN_ANGLE = 0;<br>
-            const int SERVO_MAX_ANGLE = 180;<br>
-            const int SERVO_CENTER = 90;
-        </code>
-        </div>
-        <p id="sub_bold">4) Global Variables</p>
-        <div id="code">
-        <code>Servo myServo;<br>
-            int offset = 0;<br>
-        </code>
-        </div>
-        <p id="sub_bold">5) Calibration Helper Function</p>
-        <div id="code">
-<code>
-void moveToAngle(int angle) {<br>
-&nbsp;&nbsp;int correctedAngle = angle + offset;<br>
-<br>
-&nbsp;&nbsp;if (correctedAngle &lt; SERVO_MIN_ANGLE) correctedAngle = SERVO_MIN_ANGLE;<br>
-&nbsp;&nbsp;if (correctedAngle &gt; SERVO_MAX_ANGLE) correctedAngle = SERVO_MAX_ANGLE;<br>
-<br>
-&nbsp;&nbsp;myServo.write(correctedAngle);<br>
-&nbsp;&nbsp;delay(800);<br>
-}<br>
-</code>
-</div>
-        <p id="sub_bold">6) Setup Function</p>
-    <div id="code">
-<code>
-void setup() {<br>
-&nbsp;&nbsp;Serial.begin(115200);<br>
-&nbsp;&nbsp;myServo.attach(SERVO_PIN);<br>
-<br>
-&nbsp;&nbsp;Serial.println("Starting Servo Calibration...");<br>
-&nbsp;&nbsp;Serial.println("Centering Servo...");<br>
-&nbsp;&nbsp;moveToAngle(SERVO_CENTER);<br>
-}<br>
-</code>
-</div>
-        <p id="sub_bold">7) Loop Function</p>
-        <div id="code">
-<code>
-void loop() {<br>
-&nbsp;&nbsp;moveToAngle(0);<br>
-&nbsp;&nbsp;moveToAngle(90);<br>
-&nbsp;&nbsp;moveToAngle(180);<br>
-&nbsp;&nbsp;moveToAngle(90);<br>
-<br>
-&nbsp;&nbsp;delay(1500);<br>
-}<br>
-</code>
-</div>
-<br>
-                </div>
+                    </section>
             </div>
         </div>
         <div id="footer">

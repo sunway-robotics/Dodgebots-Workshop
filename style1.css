@@ -71,6 +71,7 @@ body {
     display: inline-flex;
     flex-direction: column;
     position: fixed;
+    width: 300px;
 }
 
 #left_side #links a{
@@ -146,6 +147,13 @@ body {
         display: none;
     }
 
+    #left_side #links {
+        display: inline-flex;
+        flex-direction: column;
+        position: fixed;
+        width: 200px;
+    }
+
     #footer p {
         margin-left: 16px;
     }
@@ -196,6 +204,13 @@ body {
     
     #left_side {
         display: none;
+    }
+
+    #left_side #links {
+        display: inline-flex;
+        flex-direction: column;
+        position: fixed;
+        width: 150px;
     }
     
     #right_side td, #right_side th {

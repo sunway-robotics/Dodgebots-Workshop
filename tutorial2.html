@@ -16,17 +16,161 @@
             <div id="left_side">
                 <div id="links">
                     <a href="index.html" onclick="welcome()" id="wel">Dodgebots Workshop</a>
-                    <a href="tutorial1.html" onclick="tutorial1()" id="tut1">Part 1: Introduction to ESP32 and Components</a>
-                    <a href="#" onclick="tutorial2()" id="tut2">Part 2: 3D Design & Printing</a>
+                    <a href="tutorial1.html" onclick="tutorial1()" id="tut1">Workshop: Part 1</a>
+                    <a href="#" onclick="tutorial2()" id="tut2">Workshop: Part 2</a>
+                    <div id="inside">
+                        <a href="#servos">3.0 Servos</a>
+                        <a href="#3d">4.0 3D Design & Printing</a>
+                    </div>
                 </div>
                 </div>
             <div id="right_side">
                 <div id="tutorial2">
+                    <p>Workshop: Part 2</p>
+                    <section id="servos">
+                  <h2 style="text-decoration: none;">3.0 Servos</h2>
+                    <p id="sub">3.1 What is a Servo Motor?</p>
+                    <p id="desc">A servo motor is a rotary actuator that provides precise control over rotational position. In this competition, the servo motor is used to hold the catapult in place and release it for shooting.</p>
+                    <img id="components" src="images/servo.png">
+                    <p id="sub">3.2 How Do We Control a Servo Motor</p>
+                    <img id="components" src="images/servoturn.png">
+                    <p id="desc">The position of the servo (angle) is controlled with the PWM signal.</p>
+                    <img id="components" src="images/pwm.png">
+                    <p id="sub">Connection of Servo to ESP32</p>
+                    <img id="components" src="images/connect.png">
+                    <p id="sub">3.3 What is Servo Calibration?</p>
+                    <p id="desc">Calibration ensures:</p>
+                    <ul id="pins">
+                        <li>Each servo starts at the correct zero (home) angle</li>
+                        <li>Movements are symmetrical</li>
+                        <li>All legs/arms/links start from the same mechanical reference</li>                        
+                        <li>This prevents mechanical binding and burnt gears.</li>
+                    </ul>
+                    <p id="sub_bold">Why do we calibrate?</p>
+                    <ul id="pins">
+                        <li>To avoid torque overload</li>
+                        <li>To ensure accurate rotation</li>
+                        <li>To protect expensive servos (especially MG996R, DS3218, etc.)</li>
+                    </ul>
+                    <p id="sub">4.2.1 Servo Calibration Steps</p>
+        <p id="sub_bold">Full Code:</p>
+        <div id="code">
+            <code>
+                #include &lt;Servo.h&gt;<br>
+#define SERVO_PIN 18<br>
+const int SERVO_MIN_ANGLE = 0;<br>
+const int SERVO_MAX_ANGLE = 180;<br>
+const int SERVO_CENTER = 90;<br>
+Servo myServo;<br>
+int offset = 0;<br>
+<br>
+<br>
+void moveToAngle(int angle) {<br>
+&nbsp;&nbsp;int correctedAngle = angle + offset;<br>
+<br>
+&nbsp;&nbsp;if (correctedAngle &lt; SERVO_MIN_ANGLE) correctedAngle = SERVO_MIN_ANGLE;<br>
+&nbsp;&nbsp;if (correctedAngle &gt; SERVO_MAX_ANGLE) correctedAngle = SERVO_MAX_ANGLE;<br>
+<br>
+&nbsp;&nbsp;myServo.write(correctedAngle);<br>
+&nbsp;&nbsp;delay(800);<br>
+}<br>
+<br>
+void setup() {<br>
+&nbsp;&nbsp;Serial.begin(115200);<br>
+&nbsp;&nbsp;myServo.attach(SERVO_PIN);<br>
+<br>
+&nbsp;&nbsp;Serial.println("Starting Servo Calibration...");<br>
+&nbsp;&nbsp;Serial.println("Centering Servo...");<br>
+&nbsp;&nbsp;moveToAngle(SERVO_CENTER);<br>
+}<br>
+<br>
+<br>
+void loop() {<br>
+&nbsp;&nbsp;Serial.println("Moving to 0 degrees...");<br>
+&nbsp;&nbsp;moveToAngle(0);<br>
+<br>
+&nbsp;&nbsp;Serial.println("Moving to 90 degrees...");<br>
+&nbsp;&nbsp;moveToAngle(90);<br>
+<br>
+&nbsp;&nbsp;Serial.println("Moving to 180 degrees...");<br>
+&nbsp;&nbsp;moveToAngle(180);<br>
+<br>
+&nbsp;&nbsp;Serial.println("Returning to center...");<br>
+&nbsp;&nbsp;moveToAngle(90);<br>
+<br>
+&nbsp;&nbsp;delay(1500);<br>
+}
+            </code>
+        </div>
+        <p id="sub_bold">1) Required Libraries</p>
+        <div id="code">
+        <code>#include &lt;Servo.h&gt;</code>
+        </div>
+        <p id="sub_bold">2) Pin Definitions</p>
+        <div id="code">
+        <code>#define SERVO_PIN 18</code>
+        </div>
+        <p id="sub_bold">3) Angle Conversion Constants</p>
+        <div id="code">
+        <code>const int SERVO_MIN_ANGLE = 0;<br>
+            const int SERVO_MAX_ANGLE = 180;<br>
+            const int SERVO_CENTER = 90;
+        </code>
+        </div>
+        <p id="sub_bold">4) Global Variables</p>
+        <div id="code">
+        <code>Servo myServo;<br>
+            int offset = 0;<br>
+        </code>
+        </div>
+        <p id="sub_bold">5) Calibration Helper Function</p>
+        <div id="code">
+<code>
+void moveToAngle(int angle) {<br>
+&nbsp;&nbsp;int correctedAngle = angle + offset;<br>
+<br>
+&nbsp;&nbsp;if (correctedAngle &lt; SERVO_MIN_ANGLE) correctedAngle = SERVO_MIN_ANGLE;<br>
+&nbsp;&nbsp;if (correctedAngle &gt; SERVO_MAX_ANGLE) correctedAngle = SERVO_MAX_ANGLE;<br>
+<br>
+&nbsp;&nbsp;myServo.write(correctedAngle);<br>
+&nbsp;&nbsp;delay(800);<br>
+}<br>
+</code>
+</div>
+        <p id="sub_bold">6) Setup Function</p>
+    <div id="code">
+<code>
+void setup() {<br>
+&nbsp;&nbsp;Serial.begin(115200);<br>
+&nbsp;&nbsp;myServo.attach(SERVO_PIN);<br>
+<br>
+&nbsp;&nbsp;Serial.println("Starting Servo Calibration...");<br>
+&nbsp;&nbsp;Serial.println("Centering Servo...");<br>
+&nbsp;&nbsp;moveToAngle(SERVO_CENTER);<br>
+}<br>
+</code>
+</div>
+        <p id="sub_bold">7) Loop Function</p>
+        <div id="code">
+<code>
+void loop() {<br>
+&nbsp;&nbsp;moveToAngle(0);<br>
+&nbsp;&nbsp;moveToAngle(90);<br>
+&nbsp;&nbsp;moveToAngle(180);<br>
+&nbsp;&nbsp;moveToAngle(90);<br>
+<br>
+&nbsp;&nbsp;delay(1500);<br>
+}
+</code>
+</div>
+<br>
+            </section>
+            <section id="3d">
+                    <h2 style="text-decoration: none;">4.0 3D Design & Printing</h2>
                     <div id="title">
-                        <p>Part 2: 3D Design & Printing</p>
-                        <a href="https://github.com/sunway-robotics/Dodgebots-Workshop/tree/main/files/3D%20Workshop"><button><i class="fa fa-download"></i></button></a></a>
+                      <p id="sub">4.1 Why Do 3D Modelling?</p>
+                      <button><a target="_blank" href="https://www.canva.com/design/DAG46jQL55I/x_EpgM3hc5G9ymkWuDT_rg/edit?utm_content=DAG46jQL55I&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">Click Here for Slides</a></button>
                     </div>
-                    <p id="sub_bold">1.0 Why Do 3D Modelling?</p>
                     <ol id="sub_bold">
                         <li>Turn ideas into tangible designs</li>
                         <li id="desc" style="list-style-type: none;">3D modeling lets you visualize concepts clearly before building anything physically.</li>
@@ -39,7 +183,7 @@
                     <img id="components" src="images/fusion.png">
                     <p id="sub_bold">Overview</p>
                     <p id="desc">Fusion 360 is a powerful 3D modeling software by Autodesk that lets you create precise, parametric designs for real-world use. It's beginner-friendly, widely used in engineering and product design, and perfect for creating models that can be exported for 3D printing.</p>
-                    <p id="sub_bold">1.1 Advantages</p>
+                    <p id="sub">4.2 Advantages</p>
                     <ol id="sub_bold">
                         <li>Cloud Based</li>
                         <li id="desc" style="list-style-type: none;">Your files are auto-backed up, accessible anywhere, and version-controlled.</li>
@@ -48,33 +192,33 @@
                         <li>Free for Students</li>
                         <li id="desc" style="list-style-type: none;">Fully functional free license for students educators, and personal hobby use.</li>
                     </ol>
-                    <p id="sub_bold">1.2 Basic Movements</p>
+                    <p id="sub">4.3 Basic Movements</p>
                     <ul id="desc">
                         <li>Zoom - Scrolling your middle mouse button</li>
                         <li>Pan - Holding down the middle mouse button</li>
                         <li>Orbit - Shift + Holding down midddle mouse button</li>
                     </ul>
-                    <p id="sub_bold">1.3 Sketching</p>
+                    <p id="sub">4.4 Sketching</p>
                     <p id="desc" style="font-weight: bold;">Sketching is the first step of creating any 3D model:</p>
                     <p id="desc">You draw 2D shapes like lines, circles, and rectangles on a plane, which act as the foundation for your 3D features. A good sketch makes the rest of your modeling easier and more accurate.</p>
-                    <p id="sub_bold">1.4 Extruding (Note: making 3D shapes as new components)</p>
+                    <p id="sub">4.5 Extruding (Note: making 3D shapes as new components)</p>
                     <p id="desc" style="font-weight: bold">Extruding is the process of turning a 2D sketch into a 3D object:</p>
                     <p id="desc">You take a flat shape and pull or push it to give it thickness, creating a solid form. A well-defined sketch ensures the extrusion produces the shape you want accurately.</p>
-                    <p id="sub_bold">1.5 Additional Tools</p>
+                    <p id="sub">4.6 Additional Tools</p>
                     <ul id="desc">
                         <li>Inspect</li>
                         <li>Visibility</li>
                         <li>Fillet</li>
                         <li>Scale</li>
                     </ul>
-                    <p id="sub_bold">1.6 Practical Time</p>
+                    <p id="sub">4.7 Practical Time</p>
                     <img id="components" src="images/catapult.png">
                     <div id="caption">Simple car with catapult mounted on top</div>
                     <p id="sub_bold">Timeline</p>
                     <img id="components" style="width: 100%; padding-bottom: 20px;" src="images/timeline.png">
                     <p id="sub_bold">Importing</p>
                     <img id="components" style="width: 100%; padding-bottom: 20px;" src="images/import.png">
-                    <p id="sub_bold">1.7 Even More Tools</p>
+                    <p id="sub_bold">Even More Tools</p>
                     <ul id="desc">
                         <li>Rigid Groups</li>
                         <li>Align</li>
@@ -82,15 +226,18 @@
                         <li>Timeline</li>
                         <li>Removing</li>
                     </ul>
-                    <p id="sub_bold">1.8 Exporting</p>
+                    <p id="sub_bold">Exporting</p>
                     <p id="sub">STEP File</p>
                     <p id="desc">A STEP file (.step or .stp) is a widely used 3D CAD file format that stores precise 3D geometry and design data. It’s used to share models
                                 between different CAD software without losing design accuracy. STEP files are ideal for collaboration and professional manufacturing 
                                 workflows.</p>
                     <p id="sub">STL File</p>
-                    <p id="desc" style="padding-bottom: 20px;">An STL file (.stl) is a 3D file format that stores a model as a mesh of triangles. It is commonly used for 3D printing, because slicer 
+                    <p id="desc">An STL file (.stl) is a 3D file format that stores a model as a mesh of triangles. It is commonly used for 3D printing, because slicer 
                                 software can read it and generate printing instructions. Unlike STEP files, STL files do not store exact CAD data or dimensions.</p>
-                    <p id="sub_bold">2.0 What is 3D Printing Used For?</p>
+                    <div id="title">
+                      <p id="sub">4.8 What is 3D Printing Used For?</p>
+                      <button><a target="_blank" href="https://docs.google.com/presentation/d/1o7c4Vkp1S6KnYRM6lXrzI4lNFlF2f7Xf/edit?usp=sharing&ouid=107234115762910365295&rtpof=true&sd=true">Click Here for Slides</a></button>
+                    </div>
                     <ul id="desc">
                         <li>3D printers are used to create physical objects from digital designs.</li>
                         <li>They are used to make prototypes, models, and product samples.</li>
@@ -99,7 +246,7 @@
                         <li>They are used to create complex shapes that traditional manufacturing cannot easily make.</li>
                         <li>They are used in education, engineering, medicine, and hobby projects to turn ideas into real items.</li>
                     </ul>
-                    <p id="sub_bold">2.1 Complexity of 3D Printing</p>
+                    <p id="sub">4.9 Complexity of 3D Printing</p>
                     <p id="desc">The complexity depends on the 3D design.</p>
                     <p id="desc"><strong>Simple designs</strong> (boxes, flat shapes):</p>
                     <ul id="desc">
@@ -115,7 +262,7 @@
                         <li>Slower printing to avoid defects</li>
                     </ul>
                     <p id="desc">The complexity affects both <strong>printing difficulty</strong> and <strong>time</strong>.</p>
-                    <p id="sub_bold">2.2 Printing 3D Designs for Prototyping Purposes</p>
+                    <p id="sub">4.10 Printing 3D Designs for Prototyping Purposes</p>
                     <p id="desc">For prototyping:</p>
                     <ul id="desc">
                         <li>Use fast print settings (large layer height, low infill)</li>
@@ -127,7 +274,7 @@
                         <li>Use higher quality settings (smaller layer height, strong infill)</li>
                         <li>Choose materials based on the final use case (PETG, ABS, Nylon)</li>
                     </ul>
-                    <p id="sub_bold">2.3 Longevity of 3D Printed Items</p>
+                    <p id="sub">4.11 Longevity of 3D Printed Items</p>
                     <p id="desc">Longevity depends on:</p>
                     <ul id="desc">
                         <li><strong>Material</strong> (PLA = short life in heat; PETG/ABS = longer; Nylon = longest)</li>
@@ -136,7 +283,7 @@
                         <li><strong>Wall thickness + infill</strong></li>
                     </ul>
                     <p id="desc">Long-lasting prints usually need <strong>stronger materials, higher infill,</strong> and <strong>thicker walls.</strong></p>
-                    <p id="sub_bold">2.4 Quality of Printing Filament</p>
+                    <p id="sub">4.12 Quality of Printing Filament</p>
                     <p id="desc">Different materials behave differently:</p>
                     <ul id="desc">
                         <li><strong>PLA</strong> → stiff but brittle</li>
@@ -146,7 +293,7 @@
                         <li><strong>TPU</strong> → rubber-like and bendable</li>
                     </ul>
                     <p id="desc">Your needs decide the material and print settings.</p>
-                    <p id="sub_bold">2.5 3D Printing Technologies & Filaments</p>
+                    <p id="sub_bold">4.13 3D Printing Technologies & Filaments</p>
                     <p id="sub">3D Printing Technologies</p>
                         <p id="descbox">For context, 3D printers in Sunway iLabs use the FDM technology.</p>
 <table id="driver">
@@ -456,6 +603,8 @@
 </table>
 <br>
                 </div>
+              </section>
+              </div>
             </div>
         </div>
         <div id="footer">
