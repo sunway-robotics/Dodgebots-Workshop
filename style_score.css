@@ -302,15 +302,6 @@ iframe {
 }
 
 @media only screen and (max-width: 1000px) {
-    #main {
-        width: 167%;
-    }
-
-    iframe {
-        transform: scale(0.6);
-        transform-origin: 0 0;
-        width: calc(100% / 0.6);
-    }
 
     #left_side #links {
         display: inline-flex;
