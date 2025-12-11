@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Dodgebots - Live Score</title>
+        <link rel="icon" href="images/robot.ico">
+        <link rel="stylesheet" href="style_score.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="page" id="page-1">
+            <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A1:Q24" width="100%" height="600px"></iframe>
+        </div>
+        <div class="page" id="page-2" display="none">
+            <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A29:Q53" width="100%" height="600px"></iframe>
+        </div>
+        <div class="page" id="page-3" display="none">
+            <iframe id="sheet-iframe3" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A55:Q79" width="100%" height="600px"></iframe>
+        </div>
+        <div class="page" id="page-4" display="none">
+            <iframe id="sheet-iframe4" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A81:Q105" width="100%" height="600px"></iframe>
+        </div>
+        <div id="footer">
+                <p>Made with ♥ by Sunway Robotics Club.</p>
+            <div class="foot_right">
+                <button id="prev-btn" disabled><img src="images/left.png"></button>
+                <button id="next-btn"><img src="images/right.png"></button>
+            </div>
+        </div>
+        <script src="script_live.js"></script>
+    </body>
+        </html>

@@ -76,3 +76,4 @@ function myFunction() {
     y.style.gridTemplateColumns = "1fr";
   }
 }
+
