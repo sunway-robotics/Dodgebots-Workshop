@@ -6,7 +6,7 @@ let currentPageIndex = 0; // Start at the first page (index 0)
 let refreshIntervalId = null; // Variable to hold the active interval ID
 
 // Array of all potential iframe IDs
-const iframeIds = ['sheet-iframe1', 'sheet-iframe2', 'sheet-iframe3', 'sheet-iframe4'];
+const iframeIds = ['sheet-iframe1', 'sheet-iframe2', 'sheet-iframe3', 'sheet-iframe4', 'sheet-iframe5', 'sheet-iframe6'];
 const REFRESH_INTERVAL = 10000; // Recommended to increase to 60 seconds (60000ms)
 
 // Function to refresh a specific iframe element
