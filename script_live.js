@@ -1,92 +1,125 @@
-const pages = document.querySelectorAll('.page');
+// --- CONFIGURATION ---
+const REFRESH_INTERVAL = 10000; // 10 seconds
+
+// --- STATE MANAGEMENT ---
+// We track the current page index for every team separately
+// Example: { 'team-alpha': 1, 'team-beta': 0, 'team-gamma': 0 }
+const teamState = {
+    'preliminary1': 0,
+    'preliminary2': 0,
+    'preliminary3': 0,
+    'preliminary4': 0,
+    'quarter': 0,
+    'semi': 0,
+    'final': 0
+};
+
+let currentTeamId = 'team-alpha'; // Default start
+let refreshIntervalId = null;
+
+// --- DOM ELEMENTS ---
+const teamSelector = document.getElementById('view-selector');
 const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
+const allTeamViews = document.querySelectorAll('.view-section');
 
-let currentPageIndex = 0; // Start at the first page (index 0)
-let refreshIntervalId = null; // Variable to hold the active interval ID
+// --- REFRESH LOGIC ---
 
-// Array of all potential iframe IDs
-const iframeIds = ['sheet-iframe1', 'sheet-iframe2', 'sheet-iframe3', 'sheet-iframe4', 'sheet-iframe5', 'sheet-iframe6'];
-const REFRESH_INTERVAL = 10000; // Recommended to increase to 60 seconds (60000ms)
-
-// Function to refresh a specific iframe element
-function refreshIframe(iframeId) {
-    const iframe = document.getElementById(iframeId);
-    if (iframe) {
+function refreshActiveIframe(iframe) {
+    if (!iframe) return;
+    
+    try {
         const url = new URL(iframe.src);
-        // Add a unique timestamp to prevent browser/server caching
-        url.searchParams.set('ts', new Date().getTime());
+        url.searchParams.set('ts', new Date().getTime()); // Cache buster
         iframe.src = url.toString();
-        console.log(`Iframe refreshed: ${iframeId}`);
+        console.log(`Refreshed iframe in: ${currentTeamId}`);
+    } catch (e) {
+        console.error("Error refreshing iframe:", e);
     }
 }
 
-// Function to stop the existing refresh interval
 function stopRefresh() {
     if (refreshIntervalId !== null) {
         clearInterval(refreshIntervalId);
         refreshIntervalId = null;
-        console.log('Refresh interval stopped.');
     }
 }
 
-function updatePageDisplay() {
-    // 1. Stop any currently running refresh interval immediately
+// --- CORE DISPLAY LOGIC ---
+
+function updateDisplay() {
+    // 1. Stop any existing timers immediately
     stopRefresh();
 
-    // 2. Hide all pages
-    pages.forEach(page => {
-        page.style.display = 'none';
+    // 2. Hide ALL team views first
+    allTeamViews.forEach(view => view.style.display = 'none');
+
+    // 3. Select the Current Team Wrapper
+    const activeTeamContainer = document.getElementById(currentTeamId);
+    if (!activeTeamContainer) return;
+
+    // 4. Show the active team container
+    activeTeamContainer.style.display = 'block';
+
+    // 5. Get pages ONLY within this specific team
+    const pages = activeTeamContainer.querySelectorAll('.page');
+    const currentIndex = teamState[currentTeamId];
+
+    // 6. Hide all pages in this team, then show the current one
+    pages.forEach((page, index) => {
+        if (index === currentIndex) {
+            page.style.display = 'flex';
+            
+            // 7. Find the iframe inside this specific page and start timer
+            const iframe = page.querySelector('iframe');
+            if (iframe) {
+                // Refresh immediately
+                refreshActiveIframe(iframe);
+                // Start interval
+                refreshIntervalId = setInterval(() => {
+                    refreshActiveIframe(iframe);
+                }, REFRESH_INTERVAL);
+            }
+        } else {
+            page.style.display = 'none';
+        }
     });
 
-    // Get the current page element
-    const currentPage = pages[currentPageIndex];
-    
-    // 3. Show the current page
-    currentPage.style.display = 'flex';
-
-    // 4. Determine the iframe on the current page and START its refresh cycle
-    
-    // Find which iframe, if any, is on the current page
-    let activeIframeId = null;
-    for (const id of iframeIds) {
-        if (currentPage.querySelector(`#${id}`)) {
-            activeIframeId = id;
-            break; // Found the active one, no need to check others
-        }
-    }
-
-    if (activeIframeId) {
-        // Start the interval for the active iframe
-        refreshIntervalId = setInterval(() => {
-            refreshIframe(activeIframeId);
-        }, REFRESH_INTERVAL);
-
-        // Run the refresh once immediately upon navigation
-        refreshIframe(activeIframeId);
-        console.log(`Refresh interval started for: ${activeIframeId}`);
-    } 
-
-    // 5. Update button states (disabled/enabled)
-    prevBtn.disabled = (currentPageIndex === 0);
-    nextBtn.disabled = (currentPageIndex === pages.length - 1);
+    // 8. Update Button States based on this team's page count
+    prevBtn.disabled = (currentIndex === 0);
+    nextBtn.disabled = (currentIndex === pages.length - 1);
 }
 
-// Handler for the "Next Page" button
+// --- EVENT HANDLERS ---
+
+// Switch Teams
+teamSelector.addEventListener('change', (e) => {
+    currentTeamId = e.target.value;
+    updateDisplay(); // This will load the saved page index for the new team
+});
+
+// Next Page
 nextBtn.addEventListener('click', () => {
-    if (currentPageIndex < pages.length - 1) {
-        currentPageIndex++; // Move to the next index
-        updatePageDisplay();
+    const activeTeamContainer = document.getElementById(currentTeamId);
+    const pages = activeTeamContainer.querySelectorAll('.page');
+    
+    // Check if we can move forward
+    if (teamState[currentTeamId] < pages.length - 1) {
+        teamState[currentTeamId]++; // Increment THIS team's index
+        updateDisplay();
     }
 });
 
-// Handler for the "Previous Page" button
+// Previous Page
 prevBtn.addEventListener('click', () => {
-    if (currentPageIndex > 0) {
-        currentPageIndex--; // Move to the previous index
-        updatePageDisplay();
+    // Check if we can move backward
+    if (teamState[currentTeamId] > 0) {
+        teamState[currentTeamId]--; // Decrement THIS team's index
+        updateDisplay();
     }
 });
 
-// Initial call to set up the display and start the first interval if a sheet is on page 1
-updatePageDisplay();
+// --- INITIALIZATION ---
+// Ensure the state matches the dropdown on load
+currentTeamId = teamSelector.value;
+updateDisplay();

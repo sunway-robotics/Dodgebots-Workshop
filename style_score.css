@@ -179,6 +179,10 @@ iframe {
     font-weight: normal;
 }
 
+.view-section {
+    height: 95vh;
+}
+
 #right_side #sub {
     font-size: 20px;
     text-decoration: underline;
