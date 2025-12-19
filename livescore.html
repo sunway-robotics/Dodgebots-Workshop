@@ -7,6 +7,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        <div id="top-timer-bar">
+            <div class="timer-minimal">
+                <span id="timer-display">03:00</span>
+                <button id="timer-toggle" onclick="toggleTimer()">Start</button>
+                <span class="divider">/</span>
+                <button id="timer-reset" onclick="resetTimer()">Reset</button>
+                <audio id="timer-sound" src="files/buzzer.mp3" preload="auto"></audio>
+            </div>
+        </div>
         <div id="main1">
             <div id="preliminary1" class="view-section">
                 <div class="page" id="page-1">
@@ -266,7 +275,7 @@
             <p>Test 2</p>
         </div>
         <div id="footer">
-                <p>Made with ♥ by Sunway Robotics Club.</p>
+            <p>Made with ♥ by Sunway Robotics Club.</p>
             <div class="foot_right">
                 <select id="view-selector">
                     <option value="preliminary1">Preliminary Group 1</option>
@@ -284,8 +293,8 @@
                     <option value="underdogstie">Miscellaneous Tie-Breaker</option>
                     <option value="final">Finals</option>
                 </select>
-                <button id="prev-btn" disabled><img src="images/left.png"></button>
-                <button id="next-btn"><img src="images/right.png"></button>
+                <button id="prev-btn" disabled><img src="images/left.png" alt="<"></button>
+                <button id="next-btn"><img src="images/right.png" alt=">"></button>
             </div>
         </div>
         <script src="script_live.js"></script>
