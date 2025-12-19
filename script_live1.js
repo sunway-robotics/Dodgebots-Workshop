@@ -1,98 +1,4 @@
 // ==========================================
-// 1. FOOTER TIMER LOGIC (With Alarm)
-// ==========================================
-
-const START_MINUTES = 3; 
-let timeLeft = START_MINUTES * 60;
-let timerInterval = null;
-let isTimerRunning = false;
-
-// DOM Elements
-const timerDisplay = document.getElementById('timer-display'); 
-const toggleBtn = document.getElementById('timer-toggle');     
-const timerContainer = document.querySelector('.timer-minimal');
-const alarmSound = document.getElementById('timer-sound');
-
-function updateTimerDisplay() {
-    const m = Math.floor(timeLeft / 60);
-    const s = timeLeft % 60;
-    if (timerDisplay) {
-        timerDisplay.innerText = `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
-    }
-}
-
-function toggleTimer() {
-    if (timeLeft <= 0) { resetTimer(); return; }
-
-    if (isTimerRunning) {
-        // PAUSE
-        clearInterval(timerInterval);
-        isTimerRunning = false;
-        toggleBtn.innerText = "Start";
-        timerContainer.classList.remove('timer-running');
-    } else {
-        // START
-        isTimerRunning = true;
-        toggleBtn.innerText = "Pause";
-        timerContainer.classList.add('timer-running');
-
-        timerInterval = setInterval(() => {
-            timeLeft--;
-            updateTimerDisplay();
-
-            // --- NEW: TURN RED IF 10 SECONDS OR LESS ---
-            if (timeLeft <= 10 && timeLeft > 0) {
-                timerContainer.classList.add('timer-warning');
-            }
-
-            if (timeLeft <= 0) {
-                // TIME IS UP!
-                clearInterval(timerInterval);
-                isTimerRunning = false;
-                
-                // Visual Updates
-                timerContainer.classList.remove('timer-running');
-                
-                // Remove warning class so 'done' takes over (optional, depends on your preference)
-                timerContainer.classList.remove('timer-warning'); 
-                
-                timerContainer.classList.add('timer-done'); 
-                toggleBtn.innerText = "Stop";
-
-                // Audio Trigger
-                if (alarmSound) {
-                    alarmSound.currentTime = 0;
-                    alarmSound.play().catch(error => console.log("Audio blocked:", error));
-                }
-            }
-        }, 1000);
-    }
-}
-
-function resetTimer() {
-    clearInterval(timerInterval);
-    isTimerRunning = false;
-    timeLeft = START_MINUTES * 60;
-    updateTimerDisplay();
-    
-    // Stop Audio
-    if (alarmSound) {
-        alarmSound.pause();
-        alarmSound.currentTime = 0;
-    }
-    
-    // Reset Visuals
-    toggleBtn.innerText = "Start";
-    // --- UPDATED: Remove 'timer-warning' here as well ---
-    timerContainer.classList.remove('timer-running', 'timer-done', 'timer-warning');
-}
-
-// Initialize
-updateTimerDisplay();
-
-// ... (Rest of your View & Iframe Logic remains unchanged) ...
-
-// ==========================================
 // 2. VIEW & IFRAME REFRESH LOGIC
 // ==========================================
 
@@ -199,3 +105,29 @@ if (teamSelector) {
     currentTeamId = teamSelector.value;
     updateViewDisplay();
 }
+
+// ==========================================
+// 3. MAIN SLIDE ROTATION LOGIC
+// ==========================================
+
+const MAIN_SLIDES = ['main1', 'main2', 'main3'];
+const MAIN_SWITCH_TIME = 5000; 
+let currentMainIndex = 0;
+
+function rotateMainContainers() {
+    MAIN_SLIDES.forEach(id => {
+        const el = document.getElementById(id);
+        if(el) el.style.display = 'none';
+    });
+
+    currentMainIndex++;
+    if (currentMainIndex >= MAIN_SLIDES.length) {
+        currentMainIndex = 0; 
+    }
+
+    const nextId = MAIN_SLIDES[currentMainIndex];
+    const nextEl = document.getElementById(nextId);
+    if(nextEl) nextEl.style.display = 'block';
+}
+
+setInterval(rotateMainContainers, MAIN_SWITCH_TIME);
