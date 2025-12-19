@@ -59,12 +59,6 @@ body {
     padding-top: 48px;
 }
 
-.pdf {
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 4 / 3;
-}
-
 #left_side {
     top: 0;
     margin-top: 36px;
@@ -98,7 +92,7 @@ body {
     margin-left: 15px;
 }
 
-#left_side a#wel {
+#left_side a#index {
     font-weight: bold;
 }
 
@@ -121,15 +115,6 @@ body {
 
 #right_side #tutorial1, #right_side #tutorial2 {
     display: none;
-}
-
-#right_side #welcome, #right_side #welcomp {
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-
-#right_side #welcome iframe, #right_side #welcomp iframe {
-    height:75vh;
 }
 
 #footer {

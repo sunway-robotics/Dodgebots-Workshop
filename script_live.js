@@ -15,7 +15,7 @@ const teamState = {
     'final': 0
 };
 
-let currentTeamId = 'team-alpha'; // Default start
+let currentTeamId = 'preliminary1'; // Default start
 let refreshIntervalId = null;
 
 // --- DOM ELEMENTS ---
