@@ -9,9 +9,15 @@ const teamState = {
     'preliminary2': 0,
     'preliminary3': 0,
     'preliminary4': 0,
+    'preliminary1tie': 0,
+    'preliminary2tie': 0,
+    'preliminary3tie': 0,
+    'preliminary4tie': 0,
     'quarter': 0,
+    'quartertie': 0,
     'semi': 0,
     'underdogs': 0,
+    'underdogstie': 0,
     'final': 0
 };
 
@@ -124,3 +130,31 @@ prevBtn.addEventListener('click', () => {
 // Ensure the state matches the dropdown on load
 currentTeamId = teamSelector.value;
 updateDisplay();
+
+const MAIN_SLIDES = ['main1', 'main2', 'main3'];
+    const MAIN_SWITCH_TIME = 5000; // 5 Seconds
+
+    let currentMainIndex = 0;
+
+    function rotateMainContainers() {
+        // A. Hide ALL main containers
+        MAIN_SLIDES.forEach(id => {
+            const el = document.getElementById(id);
+            if(el) el.style.display = 'none';
+        });
+
+        // B. Determine next index
+        currentMainIndex++;
+        if (currentMainIndex >= MAIN_SLIDES.length) {
+            currentMainIndex = 0; // Loop back to main1
+        }
+
+        // C. Show the new current container
+        const nextId = MAIN_SLIDES[currentMainIndex];
+        const nextEl = document.getElementById(nextId);
+        if(nextEl) nextEl.style.display = 'block';
+    }
+
+    // 2. Start the Timer
+    // We use setInterval to run this indefinitely
+    setInterval(rotateMainContainers, MAIN_SWITCH_TIME);

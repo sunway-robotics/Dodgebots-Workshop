@@ -12,6 +12,19 @@ body {
     overflow: hidden;
 }
 
+/* The Main Containers */
+    #main1, #main2, #main3 {
+        display: none; /* Hide all by default */
+        flex-grow: 1;  /* Take up available space */
+        width: 100%;
+        overflow: hidden; 
+    }
+
+    /* Show main1 by default so the page isn't empty on load */
+    #main1 {
+        display: block;
+    }
+
 #left_side a:hover {
     filter: invert(0.5);
 }

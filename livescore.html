@@ -1,147 +1,269 @@
 <html>
     <head>
-        <title>Dodgebots - Live Score</title>
+        <title>Live Score</title>
         <link rel="icon" href="images/robot.ico">
         <link rel="stylesheet" href="style_score.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div id="preliminary1" class="view-section">
-            <div class="page" id="page-1">
-                <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A2:Q28" width="100%" height="600px"></iframe>
+        <div id="main1">
+            <div id="preliminary1" class="view-section">
+                <div class="page" id="page-1">
+                    <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A2:Q28" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-2" display="none">
+                    <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A30:Q56" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-3" display="none">
+                    <iframe id="sheet-iframe3" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A58:Q84" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-4" display="none">
+                    <iframe id="sheet-iframe4" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A86:Q112" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-5" display="none">
+                    <iframe id="sheet-iframe5" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A114:Q140" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-6" display="none">
+                    <iframe id="sheet-iframe6" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A142:Q168" width="100%" height="600px"></iframe>
+                </div>
             </div>
-            <div class="page" id="page-2" display="none">
-                <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A30:Q56" width="100%" height="600px"></iframe>
+            <div id="preliminary2" class="view-section">
+                <div class="page" id="page-1">
+                    <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A171:Q197" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-2" display="none">
+                    <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A199:Q225" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-3" display="none">
+                    <iframe id="sheet-iframe3" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A227:Q253" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-4" display="none">
+                    <iframe id="sheet-iframe4" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A255:Q281" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-5" display="none">
+                    <iframe id="sheet-iframe5" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A283:Q309" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-6" display="none">
+                    <iframe id="sheet-iframe6" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A311:Q337" width="100%" height="600px"></iframe>
+                </div>
             </div>
-            <div class="page" id="page-3" display="none">
-                <iframe id="sheet-iframe3" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A58:Q84" width="100%" height="600px"></iframe>
+            <div id="preliminary3" class="view-section">
+                <div class="page" id="page-1">
+                    <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A340:Q366" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-2" display="none">
+                    <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A368:Q394" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-3" display="none">
+                    <iframe id="sheet-iframe3" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A396:Q422" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-4" display="none">
+                    <iframe id="sheet-iframe4" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A424:Q450" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-5" display="none">
+                    <iframe id="sheet-iframe5" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A452:Q478" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-6" display="none">
+                    <iframe id="sheet-iframe6" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A480:Q506" width="100%" height="600px"></iframe>
+                </div>
             </div>
-            <div class="page" id="page-4" display="none">
-                <iframe id="sheet-iframe4" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A86:Q112" width="100%" height="600px"></iframe>
+            <div id="preliminary4" class="view-section">
+                <div class="page" id="page-1">
+                    <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A509:Q535" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-2" display="none">
+                    <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A537:Q563" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-3" display="none">
+                    <iframe id="sheet-iframe3" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A565:Q591" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-4" display="none">
+                    <iframe id="sheet-iframe4" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A593:Q619" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-5" display="none">
+                    <iframe id="sheet-iframe5" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A621:Q647" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-6" display="none">
+                    <iframe id="sheet-iframe6" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A649:Q675" width="100%" height="600px"></iframe>
+                </div>
             </div>
-            <div class="page" id="page-5" display="none">
-                <iframe id="sheet-iframe5" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A114:Q140" width="100%" height="600px"></iframe>
+            <div id="preliminary1tie" class="view-section">
+                <div class="page" id="page-1">
+                    <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S2:AF28" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-2" display="none">
+                    <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S30:AF56" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-3" display="none">
+                    <iframe id="sheet-iframe3" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S58:AF84" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-4" display="none">
+                    <iframe id="sheet-iframe4" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S86:AF112" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-5" display="none">
+                    <iframe id="sheet-iframe5" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S114:AF140" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-6" display="none">
+                    <iframe id="sheet-iframe6" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S142:AF168" width="100%" height="600px"></iframe>
+                </div>
             </div>
-            <div class="page" id="page-6" display="none">
-                <iframe id="sheet-iframe6" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A142:Q168" width="100%" height="600px"></iframe>
+            <div id="preliminary2tie" class="view-section">
+                <div class="page" id="page-1">
+                    <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S171:AF197" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-2" display="none">
+                    <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S199:AF225" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-3" display="none">
+                    <iframe id="sheet-iframe3" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S227:AF253" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-4" display="none">
+                    <iframe id="sheet-iframe4" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S255:AF281" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-5" display="none">
+                    <iframe id="sheet-iframe5" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S283:AF309" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-6" display="none">
+                    <iframe id="sheet-iframe6" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S311:AF337" width="100%" height="600px"></iframe>
+                </div>
+            </div>
+            <div id="preliminary3tie" class="view-section">
+                <div class="page" id="page-1">
+                    <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S340:SF366" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-2" display="none">
+                    <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S368:AF394" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-3" display="none">
+                    <iframe id="sheet-iframe3" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S396:AF422" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-4" display="none">
+                    <iframe id="sheet-iframe4" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S424:AF450" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-5" display="none">
+                    <iframe id="sheet-iframe5" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S452:AF478" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-6" display="none">
+                    <iframe id="sheet-iframe6" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S480:AF506" width="100%" height="600px"></iframe>
+                </div>
+            </div>
+            <div id="preliminary4tie" class="view-section">
+                <div class="page" id="page-1">
+                    <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S509:AF535" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-2" display="none">
+                    <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S537:AF563" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-3" display="none">
+                    <iframe id="sheet-iframe3" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S565:AF591" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-4" display="none">
+                    <iframe id="sheet-iframe4" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S593:AF619" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-5" display="none">
+                    <iframe id="sheet-iframe5" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S621:AF647" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-6" display="none">
+                    <iframe id="sheet-iframe6" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S649:AF675" width="100%" height="600px"></iframe>
+                </div>
+            </div>
+            <div id="quarter" class="view-section" display="none">
+                <div class="page" id="page-1">
+                    <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A679:Q705" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-2" display="none">
+                    <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A708:Q734" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-3" display="none">
+                    <iframe id="sheet-iframe3" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A737:Q763" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-4" display="none">
+                    <iframe id="sheet-iframe4" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A766:Q792" width="100%" height="600px"></iframe>
+                </div>
+            </div>
+            <div id="quartertie" class="view-section" display="none">
+                <div class="page" id="page-1">
+                    <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S679:AF705" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-2" display="none">
+                    <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S708:AF734" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-3" display="none">
+                    <iframe id="sheet-iframe3" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S737:AF763" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-4" display="none">
+                    <iframe id="sheet-iframe4" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S766:AF792" width="100%" height="600px"></iframe>
+                </div>
+            </div>
+            <div id="semi" class="view-section" display="none">
+                <div class="page" id="page-1">
+                    <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A796:Q822" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-2" display="none">
+                    <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A825:Q851" width="100%" height="600px"></iframe>
+                </div>
+            </div>
+            <div id="underdogs" class="view-section" display="none">
+                <div class="page" id="page-1">
+                    <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A854:Q880" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-2" display="none">
+                    <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A882:Q908" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-3" display="none">
+                    <iframe id="sheet-iframe3" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A910:Q936" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-4" display="none">
+                    <iframe id="sheet-iframe4" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A938:Q964" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-5" display="none">
+                    <iframe id="sheet-iframe5" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A966:Q992" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-6" display="none">
+                    <iframe id="sheet-iframe6" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A994:Q1020" width="100%" height="600px"></iframe>
+                </div>
+            </div>
+            <div id="underdogstie" class="view-section" display="none">
+                <div class="page" id="page-1">
+                    <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S854:AF880" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-2" display="none">
+                    <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S882:AF908" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-3" display="none">
+                    <iframe id="sheet-iframe3" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S910:AF936" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-4" display="none">
+                    <iframe id="sheet-iframe4" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S938:AF964" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-5" display="none">
+                    <iframe id="sheet-iframe5" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S966:AF992" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-6" display="none">
+                    <iframe id="sheet-iframe6" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=S994:AF1020" width="100%" height="600px"></iframe>
+                </div>
+            </div>
+            <div id="final" class="view-section" display="none">
+                <div class="page" id="page-1">
+                    <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A1023:Q1049" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-2" display="none">
+                    <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A1051:Q1077" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-3" display="none">
+                    <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A1079:Q1105" width="100%" height="600px"></iframe>
+                </div>
+                <div class="page" id="page-4" display="none">
+                    <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A1108:Q1134" width="100%" height="600px"></iframe>
+                </div>
             </div>
         </div>
-        <div id="preliminary2" class="view-section">
-            <div class="page" id="page-1">
-                <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A171:Q197" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-2" display="none">
-                <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A199:Q225" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-3" display="none">
-                <iframe id="sheet-iframe3" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A227:Q253" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-4" display="none">
-                <iframe id="sheet-iframe4" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A255:Q281" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-5" display="none">
-                <iframe id="sheet-iframe5" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A283:Q309" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-6" display="none">
-                <iframe id="sheet-iframe6" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A311:Q337" width="100%" height="600px"></iframe>
-            </div>
+        <div id="main2">
+            <p>Test 1</p>
         </div>
-        <div id="preliminary3" class="view-section">
-            <div class="page" id="page-1">
-                <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A340:Q366" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-2" display="none">
-                <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A368:Q394" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-3" display="none">
-                <iframe id="sheet-iframe3" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A396:Q422" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-4" display="none">
-                <iframe id="sheet-iframe4" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A424:Q450" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-5" display="none">
-                <iframe id="sheet-iframe5" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A452:Q478" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-6" display="none">
-                <iframe id="sheet-iframe6" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A480:Q506" width="100%" height="600px"></iframe>
-            </div>
-        </div>
-        <div id="preliminary4" class="view-section">
-            <div class="page" id="page-1">
-                <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A509:Q535" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-2" display="none">
-                <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A537:Q563" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-3" display="none">
-                <iframe id="sheet-iframe3" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A565:Q591" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-4" display="none">
-                <iframe id="sheet-iframe4" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A593:Q619" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-5" display="none">
-                <iframe id="sheet-iframe5" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A621:Q647" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-6" display="none">
-                <iframe id="sheet-iframe6" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A649:Q675" width="100%" height="600px"></iframe>
-            </div>
-        </div>
-        <div id="quarter" class="view-section" display="none">
-            <div class="page" id="page-1">
-                <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A679:Q705" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-2" display="none">
-                <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A708:Q734" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-3" display="none">
-                <iframe id="sheet-iframe3" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A737:Q763" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-4" display="none">
-                <iframe id="sheet-iframe4" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A766:Q792" width="100%" height="600px"></iframe>
-            </div>
-        </div>
-        <div id="semi" class="view-section" display="none">
-            <div class="page" id="page-1">
-                <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A796:Q822" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-2" display="none">
-                <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A825:Q851" width="100%" height="600px"></iframe>
-            </div>
-        </div>
-        <div id="underdogs" class="view-section" display="none">
-            <div class="page" id="page-1">
-                <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A854:Q880" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-2" display="none">
-                <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A882:Q908" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-3" display="none">
-                <iframe id="sheet-iframe3" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A910:Q936" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-4" display="none">
-                <iframe id="sheet-iframe4" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A938:Q964" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-5" display="none">
-                <iframe id="sheet-iframe5" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A966:Q992" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-6" display="none">
-                <iframe id="sheet-iframe6" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A994:Q1020" width="100%" height="600px"></iframe>
-            </div>
-        </div>
-        <div id="final" class="view-section" display="none">
-            <div class="page" id="page-1">
-                <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A1023:Q1049" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-2" display="none">
-                <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A1051:Q1077" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-3" display="none">
-                <iframe id="sheet-iframe1" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A1079:Q1105" width="100%" height="600px"></iframe>
-            </div>
-            <div class="page" id="page-4" display="none">
-                <iframe id="sheet-iframe2" src="https://docs.google.com/spreadsheets/d/1u0bGi7TNUt2xDZ8TD_iOwNhrP12jw2SFOsayo-d_fyg/htmlembed/sheet?gid=547033068&range=A1108:Q1134" width="100%" height="600px"></iframe>
-            </div>
+        <div id="main3">
+            <p>Test 2</p>
         </div>
         <div id="footer">
                 <p>Made with ♥ by Sunway Robotics Club.</p>
@@ -151,9 +273,15 @@
                     <option value="preliminary2">Preliminary Group 2</option>
                     <option value="preliminary3">Preliminary Group 3</option>
                     <option value="preliminary4">Preliminary Group 4</option>
+                    <option value="preliminary1tie">Preliminary Group 1 Tie-Breaker</option>
+                    <option value="preliminary2tie">Preliminary Group 2 Tie-Breaker</option>
+                    <option value="preliminary3tie">Preliminary Group 3 Tie-Breaker</option>
+                    <option value="preliminary4tie">Preliminary Group 4 Tie-Breaker</option>
                     <option value="quarter">Quarter</option>
+                    <option value="quartertie">Quarter Tie-Breaker</option>
                     <option value="semi">Semi-Finals</option>
                     <option value="underdogs">Miscellaneous</option>
+                    <option value="underdogstie">Miscellaneous Tie-Breaker</option>
                     <option value="final">Finals</option>
                 </select>
                 <button id="prev-btn" disabled><img src="images/left.png"></button>
