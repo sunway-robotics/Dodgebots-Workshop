@@ -270,6 +270,8 @@ iframe {
 
 #footer {
     display: flex;
+    position: fixed;
+    bottom: 0;
     height: 48px;
     width: 100%;
     background-color: rgb(36, 36, 36);

@@ -11,6 +11,7 @@ const teamState = {
     'preliminary4': 0,
     'quarter': 0,
     'semi': 0,
+    'underdogs': 0,
     'final': 0
 };
 
